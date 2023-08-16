@@ -26,5 +26,6 @@ export const skills: SkillModel[] = [
   { id: 9, title: "Sass" },
   { id: 10, title: "Webpack" },
   { id: 11, title: "Vite" },
-  { id: 12, title: "Styled components" },
+  { id: 12, title: "Styled Components" },
+  { id: 13, title: "React Hook Form" },
 ];

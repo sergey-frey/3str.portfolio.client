@@ -28,9 +28,10 @@ export const projects: ProjectModel[] = [
       "Выполненное тестовое задание на позицию Junior Frontend Developer. Самостоятельно реализованы UI компоненты с использованием Styled components.",
     skills: [
       { id: 7, title: "Next" },
-      { id: 4, title: "TypeScript" },
-      { id: 12, title: "Styled components" },
       { id: 5, title: "Redux Toolkit" },
+      { id: 4, title: "TypeScript" },
+      { id: 13, title: "React Hook Form" },
+      { id: 12, title: "Styled components" },
     ],
     image: TodoListImage,
     links: {
