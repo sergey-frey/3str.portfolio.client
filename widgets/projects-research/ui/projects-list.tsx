@@ -3,13 +3,15 @@ import { classes } from "@/shared/lib";
 import { UIBadge, UILink } from "@/shared/ui";
 import { GitHubIcon, OpenIcon } from "@/shared/ui/icons";
 import { HTMLAttributes, useContext } from "react";
-import { projects } from "../constants/projects";
 import { SkillsContext } from "../context/skills-context";
 import { getFilteredProjects } from "../model/filtered-projects";
+import { useProjects } from "../hooks";
 
 interface ProjectsListProps extends HTMLAttributes<HTMLUListElement> {}
 
 export const ProjectsList = ({ className, ...props }: ProjectsListProps) => {
+  const { data: projectsData } = useProjects();
+  const projects = projectsData?.data ?? [];
   const { selectedSkills } = useContext(SkillsContext);
   const filteredProjects = getFilteredProjects(projects, selectedSkills);
 
