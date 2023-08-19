@@ -1,6 +1,6 @@
 "use client";
 
-import { SkillsFilter } from "@/features/skills-filter";
+import { SkillsFilter, SkillsFilterSkeleton } from "@/features/skills-filter";
 import { classes } from "@/shared/lib";
 import { SkillModel } from "@/shared/types";
 import { HTMLAttributes, useContext } from "react";
@@ -14,7 +14,7 @@ export const ProjectsResearchLayout = ({
   className,
   ...props
 }: ProjectsResearchLayoutProps) => {
-  const { data: skillsData } = useSkills();
+  const { data: skillsData, isLoading: skillsLoading } = useSkills();
   const skills = skillsData?.data ?? [];
   const { setSelectedSkills } = useContext(SkillsContext);
 
@@ -25,7 +25,11 @@ export const ProjectsResearchLayout = ({
   };
   return (
     <article {...props} className={classes(className, "flex flex-col gap-10")}>
-      <SkillsFilter skills={skills} onChangeSkills={handleChangeSkills} />
+      {skillsLoading ? (
+        <SkillsFilterSkeleton />
+      ) : (
+        <SkillsFilter skills={skills} onChangeSkills={handleChangeSkills} />
+      )}
       <ProjectsList />
     </article>
   );

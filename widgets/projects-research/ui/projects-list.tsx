@@ -4,16 +4,21 @@ import { UIBadge, UILink } from "@/shared/ui";
 import { GitHubIcon, OpenIcon } from "@/shared/ui/icons";
 import { HTMLAttributes, useContext } from "react";
 import { SkillsContext } from "../context/skills-context";
-import { getFilteredProjects } from "../model/filtered-projects";
 import { useProjects } from "../hooks";
+import { getFilteredProjects } from "../model/filtered-projects";
+import { ProjectsListSkeleton } from "./projects-list-skeleton";
 
 interface ProjectsListProps extends HTMLAttributes<HTMLUListElement> {}
 
 export const ProjectsList = ({ className, ...props }: ProjectsListProps) => {
-  const { data: projectsData } = useProjects();
+  const { data: projectsData, isLoading: projectsLoading } = useProjects();
   const projects = projectsData?.data ?? [];
   const { selectedSkills } = useContext(SkillsContext);
   const filteredProjects = getFilteredProjects(projects, selectedSkills);
+
+  if (projectsLoading) {
+    return <ProjectsListSkeleton />;
+  }
 
   return (
     <div className="gap-3">
