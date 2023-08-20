@@ -1,5 +1,5 @@
 import { SkillModel } from "@/shared/types";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
 import { SkillsContext } from "../context/skills-context";
 
 export const SkillsProvider = ({ children }: { children: ReactNode }) => {

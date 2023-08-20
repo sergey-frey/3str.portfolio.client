@@ -1,5 +1,5 @@
 import { SkillModel } from "@/shared/types";
-import { Dispatch, SetStateAction, createContext } from "react";
+import { createContext } from "react";
 
 interface SkillsContextValue {
   selectedSkills: SkillModel[];
