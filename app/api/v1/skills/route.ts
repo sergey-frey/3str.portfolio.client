@@ -16,6 +16,9 @@ export async function GET() {
       { id: 11, title: "Vite" },
       { id: 12, title: "Styled Components" },
       { id: 13, title: "React Hook Form" },
+      { id: 14, title: "Astro" },
+      { id: 15, title: "Tailwind" },
+      { id: 16, title: "UI/UX" },
     ],
   });
 }
