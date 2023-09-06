@@ -1,5 +1,6 @@
 import TodoListImage from "@/shared/assets/projects-img/todo-list/main.png";
 import TravelXImage from "@/shared/assets/projects-img/travel-x/main.png";
+import CastawayImage from "@/shared/assets/projects-img/castaway/main.png";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -41,6 +42,26 @@ export async function GET() {
           deploy: "https://3str-todo.vercel.app/",
         },
         labels: ["Тестовое задание"],
+      },
+      {
+        id: 3,
+        title: "Castaway",
+        description:
+          "Адаптивная вёрстка сайта подкаста с использованием Astro, Tailwind и Typescript.",
+        skills: [
+          { id: 1, title: "Адаптивная вёрстка" },
+          { id: 2, title: "Кросс-браузерная вёрстка" },
+          { id: 4, title: "TypeScript" },
+          { id: 14, title: "Astro" },
+          { id: 15, title: "Tailwind" },
+          { id: 16, title: "UI/UX" },
+        ],
+        image: CastawayImage,
+        links: {
+          github: "https://github.com/3str-webdev/castaway_site",
+          deploy: "https://castaway-project.netlify.app/",
+        },
+        labels: ["Self-education"],
       },
     ],
   });
