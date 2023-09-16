@@ -22,9 +22,9 @@ export const UIBadge = ({
   }[variant];
 
   const badgeClassName = classes(
-    className,
     `flex items-center gap-2 px-3 py-[6px] bg-neutral-600 border-[1px] border-solid 
     border-neutral-600 rounded-xl text-h3 font-h3 select-none`,
+    className,
     variantClass
   );
 

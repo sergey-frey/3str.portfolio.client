@@ -1,11 +1,11 @@
 "use client";
 
 import { SkillsFilter, SkillsFilterSkeleton } from "@/features/skills-filter";
+import { useProjectsQuery, useSkillsQuery } from "@/shared/hooks";
 import { classes } from "@/shared/lib";
 import { SkillModel } from "@/shared/types";
 import { HTMLAttributes, useContext } from "react";
 import { SkillsContext } from "./context/skills-context";
-import { useProjects, useSkills } from "./hooks";
 import { ProjectsList } from "./ui/projects-list";
 import { ProjectsListSkeleton } from "./ui/projects-list-skeleton";
 
@@ -15,11 +15,17 @@ export const ProjectsResearchLayout = ({
   className,
   ...props
 }: ProjectsResearchLayoutProps) => {
-  const { data: skillsData, isLoading: skillsLoading } = useSkills();
-  const skills = skillsData?.data ?? [];
+  const {
+    data: skills,
+    isLoading: skillsLoading,
+    isSuccess: skillsSuccess,
+  } = useSkillsQuery();
 
-  const { data: projectsData, isLoading: projectsLoading } = useProjects();
-  const projects = projectsData?.data ?? [];
+  const {
+    data: projects,
+    isLoading: projectsLoading,
+    isSuccess: projectsSuccess,
+  } = useProjectsQuery();
 
   const { setSelectedSkills } = useContext(SkillsContext);
 
@@ -33,14 +39,20 @@ export const ProjectsResearchLayout = ({
     if (skillsLoading) {
       return <SkillsFilterSkeleton />;
     }
-    return <SkillsFilter skills={skills} onChangeSkills={handleChangeSkills} />;
+    if (skillsSuccess) {
+      return (
+        <SkillsFilter skills={skills} onChangeSkills={handleChangeSkills} />
+      );
+    }
   };
 
   const getProjectsListView = () => {
     if (projectsLoading) {
       return <ProjectsListSkeleton />;
     }
-    return <ProjectsList projects={projects} />;
+    if (projectsSuccess) {
+      return <ProjectsList projects={projects} />;
+    }
   };
 
   return (

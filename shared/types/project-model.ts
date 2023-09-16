@@ -6,7 +6,7 @@ export interface ProjectModel {
   title: string;
   description: string;
   skills: SkillModel[];
-  image: string | StaticImageData;
+  image: string;
   links: {
     github: string;
     deploy: string;

@@ -1,9 +1,11 @@
+"use client";
+
 import { classes } from "@/shared/lib";
 import { ProjectModel } from "@/shared/types";
 import { UIBadge } from "@/shared/ui";
 import { SkillsContext } from "@/widgets/projects-research/context/skills-context";
 import Image from "next/image";
-import { HTMLAttributes, ReactNode, useContext } from "react";
+import { HTMLAttributes, ReactNode, useContext, useState } from "react";
 
 interface ProjectProps extends HTMLAttributes<HTMLElement> {
   project: ProjectModel;
@@ -17,24 +19,30 @@ export const Project = ({
   ...props
 }: ProjectProps) => {
   const { selectedSkills } = useContext(SkillsContext);
+  const [isImageLoading, setIsImageLoading] = useState<boolean>(true);
+
+  const handleImageLoadingComplete = () => {
+    setIsImageLoading(false);
+  };
 
   return (
     <article
       {...props}
       className={classes(className, "flex flex-col gap-[15px]", "md:flex-row")}
     >
-      {project.image ? (
-        <Image
-          src={project.image}
-          alt={`${project.title} main image`}
-          className="w-full h-auto rounded-xl shadow-primary-500 shadow-sm md:max-w-xs lg:max-w-md"
-          placeholder="blur"
-          width={1200}
-          height={840}
-        />
-      ) : (
-        <div className="float-right min-w-[200px] lg:min-w-[350px] h-[240px] rounded-xl bg-primary-300"></div>
-      )}
+      <Image
+        src={project.image}
+        alt={`${project.title} main image`}
+        className={classes(
+          "relative overflow-hidden w-full h-auto rounded-xl shadow-primary-500 shadow-sm md:max-w-xs lg:max-w-md",
+          isImageLoading &&
+            "before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-primary-500"
+        )}
+        onLoadingComplete={handleImageLoadingComplete}
+        width={1200}
+        height={840}
+      />
+
       <div className="overflow-hidden w-full">
         <div className="flex items-center gap-3 flex-wrap">
           <h3 className="text-h2 font-h2 sm:text-h1 sm:font-h1">
@@ -54,7 +62,7 @@ export const Project = ({
             );
           })}
         </div>
-        <ul className="flex gap-[10px] overflow-x-auto mt-3 pb-2 scroll-stable">
+        <ul className="flex gap-[10px] overflow-x-auto mt-3 pb-2">
           {project.skills.map((skill) => {
             const isMatched = selectedSkills.find((s) => s.id === skill.id);
             const variant = isMatched ? "match" : "default";

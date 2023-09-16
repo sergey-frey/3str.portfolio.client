@@ -1,6 +1,6 @@
-import TodoListImage from "@/shared/assets/projects-img/todo-list/main.png";
-import TravelXImage from "@/shared/assets/projects-img/travel-x/main.png";
-import CastawayImage from "@/shared/assets/projects-img/castaway/main.png";
+// import TodoListImage from "@/shared/assets/projects-img/todo-list/main.png";
+// import TravelXImage from "@/shared/assets/projects-img/travel-x/main.png";
+// import CastawayImage from "@/shared/assets/projects-img/castaway/main.png";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -17,7 +17,7 @@ export async function GET() {
           { id: 8, title: "Gulp" },
           { id: 9, title: "Sass" },
         ],
-        image: TravelXImage,
+        image: "/projects-img/travel-x/main.png",
         links: {
           github: "https://github.com/3str-webdev/travel_x_project",
           deploy: "https://travel-x-project.netlify.app/",
@@ -36,7 +36,7 @@ export async function GET() {
           { id: 13, title: "React Hook Form" },
           { id: 12, title: "Styled components" },
         ],
-        image: TodoListImage,
+        image: "/projects-img/todo-list/main.png",
         links: {
           github: "https://github.com/3str-webdev/todo_list_test",
           deploy: "https://3str-todo.vercel.app/",
@@ -56,7 +56,7 @@ export async function GET() {
           { id: 15, title: "Tailwind" },
           { id: 16, title: "UI/UX" },
         ],
-        image: CastawayImage,
+        image: "/projects-img/castaway/main.png",
         links: {
           github: "https://github.com/3str-webdev/castaway_site",
           deploy: "https://castaway-project.netlify.app/",
