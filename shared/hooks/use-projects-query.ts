@@ -20,6 +20,6 @@ const fetchProjects = async (): Promise<ProjectModel[]> => {
 export const useProjectsQuery = () => {
   return useQuery({
     queryFn: fetchProjects,
-    queryKey: ["posts"],
+    queryKey: ["projects"],
   });
 };

@@ -1,5 +1,4 @@
 import { SkillModel } from "@/shared/types";
-import { StaticImageData } from "next/image";
 
 export interface ProjectModel {
   id: number;

@@ -2,14 +2,11 @@ import { useId, type CSSProperties, type TextareaHTMLAttributes } from "react";
 import { classes } from "../lib";
 
 type UITextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
-  label?: string;
   value?: string;
   onChange: (value: string) => void;
 };
 
 export const UITextarea = ({
-  label,
-  required,
   id,
   className,
   value = "",
@@ -20,14 +17,6 @@ export const UITextarea = ({
 
   return (
     <div className="flex flex-col gap-1">
-      <span className="flex gap-1">
-        {label && (
-          <label className="text-md" htmlFor={id ?? customId}>
-            {label}
-          </label>
-        )}
-        {required && <span className="text-primary-300">*</span>}
-      </span>
       <textarea
         {...props}
         className={classes(

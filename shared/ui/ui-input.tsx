@@ -7,35 +7,17 @@ import {
 } from "react";
 
 type UIInputProps = InputHTMLAttributes<HTMLInputElement> & {
-  label?: string;
   leftAddon?: ReactNode;
 };
 
 export const UIInput = forwardRef<HTMLInputElement, UIInputProps>(
   (
-    {
-      className,
-      label,
-      leftAddon,
-      required,
-      value = "",
-      onChange,
-      id,
-      ...props
-    },
+    { className, leftAddon, required, value = "", onChange, id, ...props },
     ref
   ) => {
     const customId = useId();
     return (
       <div className="flex flex-col gap-1">
-        <span className="flex gap-1">
-          {label && (
-            <label className="text-md" htmlFor={id ?? customId}>
-              {label}
-            </label>
-          )}
-          {required && <span className="text-primary-300">*</span>}
-        </span>
         <div className="flex">
           {leftAddon && (
             <span className="flex h-full px-4 bg-neutral-500 rounded-s-lg">

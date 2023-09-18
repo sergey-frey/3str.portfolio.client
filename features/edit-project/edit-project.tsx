@@ -2,19 +2,30 @@ import { EditCloseButton } from "@/entities/admin-project/ui/edit-close-button";
 import { useSkillsQuery } from "@/shared/hooks";
 import { classes } from "@/shared/lib";
 import { ProjectModel } from "@/shared/types";
-import { UIBadge, UIButton, UIInput, UITextarea } from "@/shared/ui";
-import type { HTMLAttributes } from "react";
+import {
+  UIBadge,
+  UIButton,
+  UIFormElemLayout,
+  UIInput,
+  UITextarea,
+} from "@/shared/ui";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useRef, type HTMLAttributes, useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { ProjectFormModel } from "./types/project-form-model";
 import { EditProjectImage } from "./ui/edit-project-image";
 import { EditProjectLabels } from "./ui/edit-project-labels";
 import { EditProjectLinks } from "./ui/edit-project-links";
 import { EditProjectSkills } from "./ui/edit-project-skills";
+import { validationSchema } from "./validation";
+import { convertProjectFormToFormData } from "./helpers/convert-project-form-to-form-data";
 
-interface EditProjectProps extends HTMLAttributes<HTMLElement> {
+interface EditProjectProps
+  extends Omit<HTMLAttributes<HTMLElement>, "onSubmit"> {
   project: ProjectModel | undefined;
   isOpen: boolean;
   onClose: () => void;
+  onSubmit: (data: FormData) => void;
 }
 
 export const EditProject = ({
@@ -22,9 +33,15 @@ export const EditProject = ({
   isOpen,
   onClose,
   className,
+  onSubmit,
   ...props
 }: EditProjectProps) => {
-  const { handleSubmit, control, reset } = useForm<ProjectFormModel>({
+  const {
+    handleSubmit,
+    control,
+    reset,
+    formState: { isValid },
+  } = useForm<ProjectFormModel>({
     defaultValues: {
       ...project,
       image: null,
@@ -33,12 +50,29 @@ export const EditProject = ({
       ...project!,
       image: null,
     },
+    resolver: yupResolver(validationSchema),
+    mode: "onChange",
   });
-
   const { data: skills } = useSkillsQuery();
+  const firstInputRef = useRef<HTMLInputElement>(null);
 
-  const onSubmit = (data: ProjectFormModel) => {
+  useEffect(() => {
+    if (project && firstInputRef.current) {
+      firstInputRef.current.focus();
+    }
+  }, [project]);
+
+  const onSubmitForm = (data: ProjectFormModel) => {
     console.log(data);
+    if (isValid) {
+      console.log("Data before onChange: ", data);
+
+      const formData = convertProjectFormToFormData(data);
+
+      onSubmit(formData);
+    } else {
+      console.log("Invalid");
+    }
   };
 
   const handleReset = () => {
@@ -66,20 +100,29 @@ export const EditProject = ({
           </h3>
 
           <form
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit(onSubmitForm)}
             className="flex-1 mt-5 px-8 flex flex-col gap-6 overflow-y-auto"
           >
             <Controller
               name="title"
               control={control}
-              render={({ field }) => {
+              render={({
+                field: { value, onChange },
+                fieldState: { error },
+              }) => {
                 return (
-                  <UIInput
+                  <UIFormElemLayout
                     label="Название проекта"
-                    placeholder="Название проекта"
-                    required
-                    {...field}
-                  />
+                    errorText={error?.message}
+                    isRequired
+                  >
+                    <UIInput
+                      placeholder="Название проекта"
+                      ref={firstInputRef}
+                      value={value}
+                      onChange={onChange}
+                    />
+                  </UIFormElemLayout>
                 );
               }}
             />
@@ -87,15 +130,22 @@ export const EditProject = ({
             <Controller
               name="skills"
               control={control}
-              render={({ field: { onChange, value } }) => {
+              render={({
+                field: { onChange, value },
+                fieldState: { error },
+              }) => {
                 return (
-                  <EditProjectSkills
+                  <UIFormElemLayout
                     label="Задействованные технологии"
-                    required
-                    allSkills={skills ?? []}
-                    selectedSkills={value ?? []}
-                    onChange={onChange}
-                  />
+                    errorText={error?.message}
+                    isRequired
+                  >
+                    <EditProjectSkills
+                      allSkills={skills ?? []}
+                      selectedSkills={value ?? []}
+                      onChange={onChange}
+                    />
+                  </UIFormElemLayout>
                 );
               }}
             />
@@ -105,13 +155,13 @@ export const EditProject = ({
               control={control}
               render={({ field: { value, onChange } }) => {
                 return (
-                  <EditProjectImage
-                    label="Обложка проекта"
-                    required
-                    value={value}
-                    onChange={onChange}
-                    prevImageURL={project.image}
-                  />
+                  <UIFormElemLayout label="Обложка проекта">
+                    <EditProjectImage
+                      value={value}
+                      onChange={onChange}
+                      prevImageURL={project.image}
+                    />
+                  </UIFormElemLayout>
                 );
               }}
             />
@@ -119,24 +169,28 @@ export const EditProject = ({
             <Controller
               name="labels"
               control={control}
-              render={({ field: { onChange, value } }) => {
+              render={({
+                field: { onChange, value },
+                fieldState: { error },
+              }) => {
                 return (
-                  <EditProjectLabels
-                    label="Пометки"
-                    labels={value ?? []}
-                    onChange={onChange}
-                    render={(label, deleteFunc) => {
-                      return (
-                        <UIBadge
-                          variant="delete"
-                          className="border-[1px] !border-neutral-300"
-                          onClick={() => deleteFunc(label)}
-                        >
-                          {label}
-                        </UIBadge>
-                      );
-                    }}
-                  />
+                  <UIFormElemLayout label="Пометки">
+                    <EditProjectLabels
+                      labels={value ?? []}
+                      onChange={onChange}
+                      render={(label, deleteFunc) => {
+                        return (
+                          <UIBadge
+                            variant="delete"
+                            className="border-[1px] !border-neutral-300"
+                            onClick={() => deleteFunc(label)}
+                          >
+                            {label}
+                          </UIBadge>
+                        );
+                      }}
+                    />
+                  </UIFormElemLayout>
                 );
               }}
             />
@@ -146,11 +200,9 @@ export const EditProject = ({
               control={control}
               render={({ field: { value, onChange } }) => {
                 return (
-                  <EditProjectLinks
-                    label="Ссылки на проект"
-                    value={value}
-                    onChange={onChange}
-                  />
+                  <UIFormElemLayout label="Ссылки на проект">
+                    <EditProjectLinks value={value} onChange={onChange} />
+                  </UIFormElemLayout>
                 );
               }}
             />
@@ -160,12 +212,13 @@ export const EditProject = ({
               control={control}
               render={({ field: { value, onChange } }) => {
                 return (
-                  <UITextarea
-                    label="Описание проекта"
-                    value={value}
-                    onChange={onChange}
-                    className="h-[150px]"
-                  />
+                  <UIFormElemLayout label="Описание проекта">
+                    <UITextarea
+                      value={value}
+                      onChange={onChange}
+                      className="h-[150px]"
+                    />
+                  </UIFormElemLayout>
                 );
               }}
             />

@@ -9,14 +9,12 @@ import {
 } from "react";
 
 type EditProjectLabelsProps = InputHTMLAttributes<HTMLInputElement> & {
-  label?: string;
   labels: string[];
   onChange: (labels: string[]) => void;
   render: (label: string, deleteFunc: (label: string) => void) => JSX.Element;
 };
 
 export const EditProjectLabels = ({
-  label,
   labels,
   onChange,
   render,
@@ -28,7 +26,12 @@ export const EditProjectLabels = ({
   const handleInputEnter = (e: KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === "Enter") {
       e.preventDefault();
-      onChange([...labels, inputValue]);
+      const trimValue = inputValue.trim();
+      const isRepeat = labels.includes(trimValue);
+      if (trimValue && !isRepeat) {
+        onChange([...labels, trimValue]);
+      }
+
       setInputValue("");
     }
   };
@@ -39,9 +42,6 @@ export const EditProjectLabels = ({
 
   const handleLabelClick = (label: string) => {
     const newLabels = labels.filter((l) => l !== label);
-
-    console.log(newLabels);
-
     onChange(newLabels);
   };
 
@@ -49,7 +49,7 @@ export const EditProjectLabels = ({
     <div className="flex flex-col gap-1">
       <div className="flex flex-col gap-2">
         <UIInput
-          label={label}
+          type="text"
           value={inputValue}
           placeholder="Пометки для проекта"
           onKeyDown={handleInputEnter}

@@ -4,14 +4,12 @@ import { GitHubIcon, OpenIcon } from "@/shared/ui/icons";
 import { ChangeEvent, useState } from "react";
 
 type EditProjectLinksProps = {
-  label?: string;
   value: ProjectModel["links"];
   onChange: (links: ProjectModel["links"]) => void;
 };
 
 export const EditProjectLinks = ({
   value,
-  label,
   onChange,
 }: EditProjectLinksProps) => {
   const handleDeployChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +25,6 @@ export const EditProjectLinks = ({
   return (
     <div className="flex flex-col gap-1">
       <UIInput
-        label={label}
         type="text"
         leftAddon={
           <OpenIcon className="w-5 h-5 self-center justify-self-center" />

@@ -9,7 +9,7 @@ export const AdminSidebar = () => {
   const getLinkKey = (index: number) => `admin_sidebar_link_${index}`;
 
   return (
-    <aside className="min-h-full p-4 bg-neutral-600 rounded-xl min-w-[250px]">
+    <aside className="min-h-full p-4 bg-neutral-800 rounded-xl min-w-[250px]">
       <ul className="flex flex-col gap-1">
         {links.map((link, i) => {
           const isActive = pathname === link.href;

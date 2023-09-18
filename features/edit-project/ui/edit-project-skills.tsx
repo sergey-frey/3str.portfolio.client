@@ -4,16 +4,12 @@ import { type HTMLAttributes } from "react";
 import { EditProjectsSkillsItem } from "./edit-project-skills-item";
 
 type EditProjectSkillsProps = HTMLAttributes<HTMLUListElement> & {
-  label?: string;
-  required?: boolean;
   selectedSkills: SkillModel[];
   allSkills: SkillModel[];
   onChange: (data: SkillModel[]) => void;
 };
 
 export const EditProjectSkills = ({
-  label,
-  required,
   allSkills,
   selectedSkills,
   onChange,
@@ -32,10 +28,6 @@ export const EditProjectSkills = ({
 
   return (
     <div className="flex flex-col gap-1">
-      <span className="flex gap-1">
-        {label && <label className="text-md">{label}</label>}
-        {required && <span className="text-primary-300">*</span>}
-      </span>
       <ul
         className={classes(
           className,

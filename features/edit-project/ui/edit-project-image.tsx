@@ -3,61 +3,43 @@
 import { classes } from "@/shared/lib";
 import { ImageIcon } from "@/shared/ui/icons";
 import Image from "next/image";
-import { ChangeEvent, useId } from "react";
+import { ChangeEvent, useId, useRef, type KeyboardEvent } from "react";
 import { usePreview } from "../hooks/use-preview";
 import { ProjectFormModel } from "../types/project-form-model";
 
 type EditProjectImageProps = {
-  label?: string;
-  required?: boolean;
   value: ProjectFormModel["image"];
   onChange: (image: ProjectFormModel["image"]) => void;
   prevImageURL: string;
 };
 
 export const EditProjectImage = ({
-  label,
-  required,
   value,
   onChange,
   prevImageURL,
 }: EditProjectImageProps) => {
   const id = useId();
   const preview = usePreview(value);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSelectFile = async (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
 
     if (files && files.length) {
       onChange(files[0]);
-      return;
+    } else {
+      onChange(null);
     }
-
-    onChange(null);
   };
 
-  const getBlobSize = (blob: Blob) => {
-    return `${Math.round(blob.size / 1024)} Кб`;
+  const handleLabelPressEnter = (e: KeyboardEvent<HTMLLabelElement>) => {
+    if (e.key === "Enter" && inputRef.current) {
+      inputRef.current.click();
+    }
   };
 
   return (
     <div className="flex flex-col gap-1">
-      <input
-        key={String(value?.name)}
-        type="file"
-        id={id}
-        onChange={handleSelectFile}
-        accept="image/*"
-        hidden
-      />
-      <span className="flex gap-1">
-        {label && (
-          <label className="text-md" htmlFor={id}>
-            {label}
-          </label>
-        )}
-        {required && <span className="text-primary-300">*</span>}
-      </span>
       <label
         className={classes(
           "flex items-center gap-4 cursor-pointer",
@@ -65,7 +47,18 @@ export const EditProjectImage = ({
           "hover:bg-neutral-500"
         )}
         htmlFor={id}
+        tabIndex={0}
+        onKeyDown={handleLabelPressEnter}
       >
+        <input
+          key={String(value?.name)}
+          type="file"
+          id={id}
+          onChange={handleSelectFile}
+          accept="image/*"
+          ref={inputRef}
+          hidden
+        />
         <ImageIcon className="text-primary-500" />
         <p>Выбрать файл</p>
       </label>

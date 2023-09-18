@@ -9,6 +9,7 @@ interface UIBadgeProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const UIBadge = ({
   variant = "default",
   className,
+  type = "button",
   children,
   ...props
 }: UIBadgeProps) => {
@@ -29,7 +30,7 @@ export const UIBadge = ({
   );
 
   return (
-    <button {...props} className={badgeClassName}>
+    <button {...props} type={type} className={badgeClassName}>
       {children}
 
       {isDelete && (

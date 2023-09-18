@@ -2,8 +2,8 @@
 
 import { AdminProject } from "@/entities/admin-project";
 import { EditProject } from "@/features/edit-project";
-import { EMPTY_PROJECT } from "@/shared/constants";
 import { useProjectsQuery } from "@/shared/hooks";
+import { usePutProjectMutation } from "@/shared/hooks/use-put-project-mutation";
 import { ProjectModel } from "@/shared/types";
 import { UIButton } from "@/shared/ui";
 import { useState } from "react";
@@ -13,6 +13,7 @@ export default function AdminProjectsPage() {
     undefined
   );
   const { data: projects, isSuccess: projectsSuccess } = useProjectsQuery();
+  const { mutate: updateProject } = usePutProjectMutation();
 
   const getAdminProjectKey = (index: number) => `admin_project_${index}`;
 
@@ -25,6 +26,13 @@ export default function AdminProjectsPage() {
       setEditedProject(project);
     }
   };
+
+  const handleSubmitEditedProject = async (data: FormData) => {
+    if (!editedProject) return;
+
+    updateProject({ id: editedProject.id, data });
+  };
+
   return (
     <div className="flex flex-col gap-3 h-full overflow-hidden">
       <ul className="flex-1 flex flex-col gap-4 overflow-y-auto">
@@ -52,6 +60,7 @@ export default function AdminProjectsPage() {
         isOpen={!!editedProject}
         project={editedProject}
         onClose={() => setEditedProject(undefined)}
+        onSubmit={handleSubmitEditedProject}
       />
     </div>
   );

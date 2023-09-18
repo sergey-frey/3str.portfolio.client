@@ -34,7 +34,7 @@ export const Project = ({
         src={project.image}
         alt={`${project.title} main image`}
         className={classes(
-          "relative overflow-hidden w-full h-auto rounded-xl shadow-primary-500 shadow-sm md:max-w-xs lg:max-w-md",
+          "w-full h-auto rounded-xl shadow-primary-500 shadow-sm md:max-w-xs lg:max-w-md",
           isImageLoading &&
             "before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-primary-500"
         )}
