@@ -62,6 +62,24 @@ class Projects {
         },
         labels: ["Self-education"],
       },
+      {
+        id: 4,
+        title: "Munchkin Counter",
+        description:
+          "Приложение для подсчёта силы в настольной игре Munchkin. Приложение активно развивается, внедряются функции, которых нехватает пользователям. Приложение mobile-first, но хорошо выглядит на любых устройствах.",
+        skills: [
+          { id: 3, title: "React" },
+          { id: 6, title: "Zustand" },
+          { id: 17, title: "Анимация" },
+          { id: 18, title: "React-transition-group" },
+        ],
+        image: "/api/v1/projects/image?id=4",
+        links: {
+          github: "https://github.com/3str-webdev/Munchkin_Counter/tree/main",
+          deploy: "https://3str-webdev.github.io/Munchkin_Counter/",
+        },
+        labels: ["Этим пользуются"],
+      },
     ];
   }
 
