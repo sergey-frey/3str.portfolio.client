@@ -19,6 +19,8 @@ export async function GET() {
       { id: 14, title: "Astro" },
       { id: 15, title: "Tailwind" },
       { id: 16, title: "UI/UX" },
+      { id: 17, title: "Анимация" },
+      { id: 18, title: "React-transition-group" },
     ],
   });
 }
