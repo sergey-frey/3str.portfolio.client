@@ -1,6 +1,7 @@
 import TodoListImage from "@/shared/assets/projects-img/todo-list/main.png";
 import TravelXImage from "@/shared/assets/projects-img/travel-x/main.png";
 import CastawayImage from "@/shared/assets/projects-img/castaway/main.png";
+import MunchkinCounterImage from "@/shared/assets/projects-img/munchkin-counter/main.png";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -62,6 +63,24 @@ export async function GET() {
           deploy: "https://castaway-project.netlify.app/",
         },
         labels: ["Self-education"],
+      },
+      {
+        id: 4,
+        title: "Munchkin Counter",
+        description:
+          "Приложение для подсчёта силы в настольной игре Munchkin. Приложение активно развивается, внедряются функции, которых нехватает пользователям. Приложение mobile-first, но хорошо выглядит на любых устройствах.",
+        skills: [
+          { id: 3, title: "React" },
+          { id: 6, title: "Zustand" },
+          { id: 17, title: "Анимация" },
+          { id: 18, title: "React-transition-group" },
+        ],
+        image: MunchkinCounterImage,
+        links: {
+          github: "https://github.com/3str-webdev/Munchkin_Counter/tree/main",
+          deploy: "https://3str-webdev.github.io/Munchkin_Counter/",
+        },
+        labels: ["Этим пользуются"],
       },
     ],
   });
