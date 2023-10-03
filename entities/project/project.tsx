@@ -2,10 +2,9 @@
 
 import { classes } from "@/shared/lib";
 import { ProjectModel } from "@/shared/types";
-import { UIBadge } from "@/shared/ui";
+import { UIBadge, UIImage } from "@/shared/ui";
 import { SkillsContext } from "@/widgets/projects-research/context/skills-context";
-import Image from "next/image";
-import { HTMLAttributes, ReactNode, useContext, useState } from "react";
+import { HTMLAttributes, ReactNode, useContext } from "react";
 
 interface ProjectProps extends HTMLAttributes<HTMLElement> {
   project: ProjectModel;
@@ -19,26 +18,18 @@ export const Project = ({
   ...props
 }: ProjectProps) => {
   const { selectedSkills } = useContext(SkillsContext);
-  const [isImageLoading, setIsImageLoading] = useState<boolean>(true);
-
-  const handleImageLoadingComplete = () => {
-    setIsImageLoading(false);
-  };
 
   return (
     <article
       {...props}
       className={classes(className, "flex flex-col gap-[15px]", "md:flex-row")}
     >
-      <Image
+      <UIImage
         src={project.image}
         alt={`${project.title} main image`}
         className={classes(
-          "w-full h-auto rounded-xl shadow-primary-500 shadow-sm md:max-w-xs lg:max-w-md",
-          isImageLoading &&
-            "before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-primary-500"
+          "w-full h-auto rounded-xl shadow-primary-500 shadow-sm md:max-w-xs lg:max-w-md"
         )}
-        onLoadingComplete={handleImageLoadingComplete}
         width={1200}
         height={840}
       />

@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import { PROJECTS } from "./projects";
+import { projects } from "./projects";
 
 export async function GET() {
   return NextResponse.json({
-    data: PROJECTS,
+    data: projects.getProjects(),
   });
 }

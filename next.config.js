@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  revalidate: 10,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

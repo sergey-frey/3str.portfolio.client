@@ -6,3 +6,4 @@ export { UICheckbox } from "./ui-checkbox";
 export { UITextarea } from "./ui-textarea";
 export { UISkeleton } from "./ui-skeleton";
 export { UIFormElemLayout } from "./ui-form-elem-layout";
+export { UIImage } from "./ui-image";

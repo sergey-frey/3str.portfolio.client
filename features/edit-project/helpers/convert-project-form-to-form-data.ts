@@ -1,4 +1,4 @@
-import { ProjectFormModel } from "../types/project-form-model";
+import { ProjectFormModel } from "@/shared/types/project-form-model";
 
 export const convertProjectFormToFormData = (
   data: ProjectFormModel

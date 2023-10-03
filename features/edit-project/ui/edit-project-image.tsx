@@ -1,11 +1,11 @@
 "use client";
 
 import { classes } from "@/shared/lib";
+import { ProjectFormModel } from "@/shared/types/project-form-model";
 import { ImageIcon } from "@/shared/ui/icons";
 import Image from "next/image";
 import { ChangeEvent, useId, useRef, type KeyboardEvent } from "react";
 import { usePreview } from "../hooks/use-preview";
-import { ProjectFormModel } from "../types/project-form-model";
 
 type EditProjectImageProps = {
   value: ProjectFormModel["image"];
@@ -21,6 +21,8 @@ export const EditProjectImage = ({
   const id = useId();
   const preview = usePreview(value);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const getUUPath = () => `${prevImageURL}&p=${Date.now()}`;
 
   const handleSelectFile = async (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -68,7 +70,7 @@ export const EditProjectImage = ({
             Было
           </p>
           <Image
-            src={prevImageURL}
+            src={getUUPath()}
             alt="Первое изображение"
             width={250}
             height={160}

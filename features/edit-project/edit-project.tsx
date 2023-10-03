@@ -2,6 +2,7 @@ import { EditCloseButton } from "@/entities/admin-project/ui/edit-close-button";
 import { useSkillsQuery } from "@/shared/hooks";
 import { classes } from "@/shared/lib";
 import { ProjectModel } from "@/shared/types";
+import { ProjectFormModel } from "@/shared/types/project-form-model";
 import {
   UIBadge,
   UIButton,
@@ -10,15 +11,14 @@ import {
   UITextarea,
 } from "@/shared/ui";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useRef, type HTMLAttributes, useEffect } from "react";
+import { useEffect, useRef, type HTMLAttributes } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { ProjectFormModel } from "./types/project-form-model";
+import { convertProjectFormToFormData } from "./helpers/convert-project-form-to-form-data";
 import { EditProjectImage } from "./ui/edit-project-image";
 import { EditProjectLabels } from "./ui/edit-project-labels";
 import { EditProjectLinks } from "./ui/edit-project-links";
 import { EditProjectSkills } from "./ui/edit-project-skills";
 import { validationSchema } from "./validation";
-import { convertProjectFormToFormData } from "./helpers/convert-project-form-to-form-data";
 
 interface EditProjectProps
   extends Omit<HTMLAttributes<HTMLElement>, "onSubmit"> {

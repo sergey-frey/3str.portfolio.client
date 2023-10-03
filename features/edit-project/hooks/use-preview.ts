@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ProjectFormModel } from "../types/project-form-model";
+import { ProjectFormModel } from "../../../shared/types/project-form-model";
 
 export const usePreview = (image: ProjectFormModel["image"]) => {
   const [preview, setPreview] = useState<string>();
