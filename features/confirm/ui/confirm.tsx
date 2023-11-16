@@ -1,5 +1,5 @@
 import { UIButton, UIButtonProps, UIModal } from "@/shared/ui";
-import { UIModalProps } from "@/shared/ui/ui-modal";
+import { UIModalProps } from "@/shared/ui/modal/ui-modal";
 
 export type ConfirmAction = {
   type: "confirm" | "not-confirm";

@@ -1,0 +1,29 @@
+.ui-modal-enter {
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ui-modal-exit {
+  transform: translateY(0px);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.ui-modal-entered {
+  transform: translateY(0px);
+  transition-property: transform, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.ui-modal-exited {
+  transform: translateY(20px);
+  transition-property: transform, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+  opacity: 0;
+  pointer-events: none;
+}
