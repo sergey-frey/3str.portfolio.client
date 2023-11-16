@@ -1,4 +1,6 @@
-import { classes } from "@/shared/lib";
+"use client";
+
+import clsx from "clsx";
 import type { HTMLAttributes } from "react";
 
 type UIFormElemLayoutProps = HTMLAttributes<HTMLDivElement> & {
@@ -34,7 +36,7 @@ export const UIFormElemLayout = ({
   };
 
   return (
-    <div {...props} className={classes("flex flex-col gap-1", className)}>
+    <div {...props} className={clsx("flex flex-col gap-1", className)}>
       {label && (
         <span className="flex gap-1">
           <label className="text-md">{label}</label>

@@ -1,5 +1,5 @@
-import { useId, type CSSProperties, type TextareaHTMLAttributes } from "react";
-import { classes } from "../lib";
+import clsx from "clsx";
+import { useId, type TextareaHTMLAttributes } from "react";
 
 type UITextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   value?: string;
@@ -19,10 +19,10 @@ export const UITextarea = ({
     <div className="flex flex-col gap-1">
       <textarea
         {...props}
-        className={classes(
+        className={clsx(
           className,
           "px-4 py-2 rounded-lg bg-neutral-1 text-neutral-100 resize-none",
-          "focused"
+          "focused",
         )}
         value={value}
         onChange={onChange}

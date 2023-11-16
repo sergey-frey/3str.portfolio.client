@@ -1,2 +1,1 @@
-export { SkillsFilter } from "./skills-filter";
-export { SkillsFilterSkeleton } from "./skills-filter-skeleton";
+export { SkillsFilter } from "./ui/skills-filter";

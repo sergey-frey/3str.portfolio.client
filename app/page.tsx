@@ -1,5 +1,3 @@
-import { redirect } from "next/navigation";
+import { HomePage } from "@/pages/home-page";
 
-export default function Home() {
-  redirect("/projects");
-}
+export default HomePage;

@@ -1,11 +1,11 @@
-import { classes } from "@/shared/lib";
-import { SkillModel } from "@/shared/types";
+import { SkillDto } from "@/shared/api/generated";
 import { UIBadge } from "@/shared/ui";
+import clsx from "clsx";
 import { HTMLAttributes } from "react";
 
 interface SkillsListProps extends HTMLAttributes<HTMLUListElement> {
-  freeSkills: SkillModel[];
-  onSelectSkill: (skill: SkillModel) => void;
+  freeSkills: SkillDto[];
+  onSelectSkill: (skill: SkillDto) => void;
 }
 
 export const SkillsList = ({
@@ -15,7 +15,7 @@ export const SkillsList = ({
   ...props
 }: SkillsListProps) => {
   return (
-    <ul {...props} className={classes(className, "flex flex-wrap gap-2")}>
+    <ul {...props} className={clsx(className, "flex flex-wrap gap-2")}>
       {freeSkills.map((skill) => {
         return (
           <li key={`free_skill_${skill.id}`}>

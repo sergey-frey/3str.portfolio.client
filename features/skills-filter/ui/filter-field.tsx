@@ -1,11 +1,11 @@
-import { classes } from "@/shared/lib";
-import { SkillModel } from "@/shared/types";
+import { SkillDto } from "@/shared/api/generated";
 import { UIBadge } from "@/shared/ui";
+import clsx from "clsx";
 import { HTMLAttributes } from "react";
 
 interface FilterFieldProps extends HTMLAttributes<HTMLDivElement> {
-  selectedSkills: SkillModel[];
-  onDeleteSkill: (skill: SkillModel) => void;
+  selectedSkills: SkillDto[];
+  onDeleteSkill: (skill: SkillDto) => void;
 }
 
 export const FilterField = ({
@@ -21,7 +21,7 @@ export const FilterField = ({
   return (
     <div
       {...props}
-      className={classes(className, "bg-neutral-500 rounded-2xl px-2 py-2")}
+      className={clsx(className, "bg-neutral-500 rounded-2xl px-2 py-2")}
     >
       <ul className="flex flex-wrap items-center gap-2">
         {selectedSkills.map((skill) => {

@@ -1,5 +1,5 @@
+import clsx from "clsx";
 import type { HTMLAttributes } from "react";
-import { classes } from "../lib";
 import { CheckedIcon } from "./icons";
 
 type UICheckboxProps = HTMLAttributes<HTMLSpanElement> & {
@@ -13,16 +13,16 @@ export const UICheckbox = ({
 }: UICheckboxProps) => {
   return (
     <span
-      className={classes(
+      className={clsx(
         className,
-        "flex items-center justify-center w-5 h-5 bg-neutral-500 rounded-md text-primary-300 overflow-hidden"
+        "flex items-center justify-center w-5 h-5 bg-neutral-500 rounded-md text-primary-300 overflow-hidden",
       )}
       {...props}
     >
       <CheckedIcon
-        className={classes(
+        className={clsx(
           "w-[14px] h-[14px] transition-transform",
-          isChecked ? "transform-none" : "-translate-y-[110%]"
+          isChecked ? "transform-none" : "-translate-y-[110%]",
         )}
       />
     </span>

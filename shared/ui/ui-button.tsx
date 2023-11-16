@@ -1,10 +1,10 @@
+import clsx from "clsx";
 import { ButtonHTMLAttributes } from "react";
-import { classes } from "../lib";
 
 type UIButtonSize = "sm" | "md";
 type UIButtonColor = "primary" | "neutral";
 
-interface UIButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface UIButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: UIButtonSize;
   color?: UIButtonColor;
 }
@@ -29,12 +29,12 @@ export const UIButton = ({
   return (
     <button
       {...props}
-      className={classes(
+      className={clsx(
         "transition-colors",
         disabled && "opacity-60 pointer-events-none",
         sizeClassName[size],
         colorClassName[color],
-        className
+        className,
       )}
       disabled={disabled}
     >

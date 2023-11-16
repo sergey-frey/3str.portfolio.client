@@ -1,3 +1,3 @@
-export default function AdminPSkillsPage() {
-  return <h1>Skills</h1>;
-}
+import { AdminSkillsPage } from "@/pages/admin-skills-page";
+
+export default AdminSkillsPage;

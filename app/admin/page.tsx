@@ -1,3 +1,3 @@
-export default function AdminPage() {
-  return <></>;
-}
+import { AdminHomePage } from "@/pages/admin-home-page";
+
+export default AdminHomePage;

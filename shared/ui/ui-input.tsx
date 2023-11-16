@@ -1,4 +1,4 @@
-import { classes } from "@/shared/lib";
+import clsx from "clsx";
 import {
   forwardRef,
   useId,
@@ -13,7 +13,7 @@ type UIInputProps = InputHTMLAttributes<HTMLInputElement> & {
 export const UIInput = forwardRef<HTMLInputElement, UIInputProps>(
   (
     { className, leftAddon, required, value = "", onChange, id, ...props },
-    ref
+    ref,
   ) => {
     const customId = useId();
     return (
@@ -28,10 +28,10 @@ export const UIInput = forwardRef<HTMLInputElement, UIInputProps>(
             {...props}
             id={id ?? customId}
             type="text"
-            className={classes(
+            className={clsx(
               "flex-1 px-4 py-2 rounded-lg bg-neutral-1 text-neutral-100",
               "focused",
-              !!leftAddon && "rounded-s-none"
+              !!leftAddon && "rounded-s-none",
             )}
             required={required}
             value={value}
@@ -41,7 +41,7 @@ export const UIInput = forwardRef<HTMLInputElement, UIInputProps>(
         </div>
       </div>
     );
-  }
+  },
 );
 
 UIInput.displayName = "UIInput";
