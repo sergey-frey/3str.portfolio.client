@@ -48,7 +48,6 @@ export const AdminProjectsPage = () => {
   const handleSubmitEditedProject = async (data: ProjectFormModel) => {
     if (!editedProject) return;
 
-    console.log(data);
     if (isCreatingProject) {
       createProjectMutation.mutate({
         title: data.title,
@@ -73,6 +72,8 @@ export const AdminProjectsPage = () => {
         },
       });
     }
+
+    setEditedProject(undefined);
   };
 
   return (
@@ -96,7 +97,7 @@ export const AdminProjectsPage = () => {
       />
 
       <EditProject
-        isOpen={!!editedProject}
+        isOpen={Boolean(editedProject)}
         project={editedProject}
         onClose={() => setEditedProject(undefined)}
         onSubmit={handleSubmitEditedProject}
