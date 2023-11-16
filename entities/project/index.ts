@@ -1,2 +1,5 @@
-export { Project } from "./project";
-export { ProjectSkeleton } from "./projects-skeleton";
+export {
+  useProjectsQuery,
+  useCreateProject,
+  useDeleteProject,
+} from "./queries";

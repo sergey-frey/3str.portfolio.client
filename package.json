@@ -6,21 +6,32 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "api:download": "wget http://localhost:3000/api-yaml -O ./shared/api/schema.yaml",
+    "api:generate": "orval"
   },
   "dependencies": {
-    "@types/node": "20.4.2",
-    "@types/react": "18.2.15",
-    "@types/react-dom": "18.2.7",
+    "@hookform/resolvers": "^3.3.1",
+    "@tanstack/react-query": "^4.35.0",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
+    "clsx": "^2.0.0",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.11",
-    "next": "13.4.11",
+    "next": "^14.0.2",
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.46.1",
     "tailwindcss": "3.3.3",
-    "typescript": "5.1.6"
+    "valibot": "^0.20.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "@types/react": "^18.2.35",
+    "@types/react-dom": "^18.2.14",
+    "orval": "^6.19.1",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
   }
 }

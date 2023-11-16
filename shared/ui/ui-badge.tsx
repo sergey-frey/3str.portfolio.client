@@ -1,5 +1,5 @@
+import clsx from "clsx";
 import { ButtonHTMLAttributes } from "react";
-import { classes } from "@/shared/lib";
 import { CrossIcon } from "./icons";
 
 interface UIBadgeProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -9,6 +9,7 @@ interface UIBadgeProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const UIBadge = ({
   variant = "default",
   className,
+  type = "button",
   children,
   ...props
 }: UIBadgeProps) => {
@@ -21,15 +22,15 @@ export const UIBadge = ({
     match: "bg-primary-600 text-neutral-100",
   }[variant];
 
-  const badgeClassName = classes(
-    className,
+  const badgeClassName = clsx(
     `flex items-center gap-2 px-3 py-[6px] bg-neutral-600 border-[1px] border-solid 
     border-neutral-600 rounded-xl text-h3 font-h3 select-none`,
-    variantClass
+    className,
+    variantClass,
   );
 
   return (
-    <button {...props} className={badgeClassName}>
+    <button {...props} type={type} className={badgeClassName}>
       {children}
 
       {isDelete && (

@@ -1,5 +1,6 @@
-import { classes } from "@/shared/lib";
 import { Header } from "@/widgets/header";
+import { Providers } from "@/widgets/providers/providers";
+import clsx from "clsx";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
@@ -19,13 +20,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={classes(
+        className={clsx(
           montserrat.className,
-          "bg-neutral-900 text-neutral-100 font-[14px] md:font-[16px]"
+          "bg-neutral-900 text-neutral-100 font-[14px] md:font-[16px]",
         )}
       >
         <Header />
-        {children}
+        <Providers>
+          {children}
+          <div id="modal-portal" ></div>
+        </Providers>
       </body>
     </html>
   );

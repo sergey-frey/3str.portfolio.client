@@ -6,6 +6,12 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+body,
+html {
+  width: 100%;
+  min-height: 100vh;
+}
+
 ::-webkit-scrollbar {
   height: 6px;
   width: 6px;
@@ -25,6 +31,9 @@
   scrollbar-gutter: auto;
 }
 
+.focused {
+  @apply outline-none focus:outline-2 focus:outline-primary-300;
+}
 @keyframes header-init {
   0% {
     opacity: 0;
