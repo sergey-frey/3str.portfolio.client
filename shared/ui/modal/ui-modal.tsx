@@ -46,10 +46,10 @@ export const UIModal = ({
                 `ui-modal-${state}`,
               )}
               onClick={handleBackdropClick}
+              ref={modalRef}
             >
               <article
                 {...props}
-                ref={modalRef}
                 className={clsx(
                   className,
                   "flex flex-col",
