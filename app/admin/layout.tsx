@@ -3,11 +3,11 @@ import type { ReactNode } from "react";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex px-4 lg:px-10 pt-[100px] pb-10 h-screen w-full">
+    <div className="absolute top-0 left-0 right-0 bottom-0 flex px-4 lg:px-10 pb-4">
       <AdminSidebar />
-      <main className="flex-1 ml-3 px-10 py-7 bg-neutral-800 rounded-xl">
+      <div className="grow ml-3 px-7 py-7 bg-neutral-800 rounded-xl">
         {children}
-      </main>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import { HTMLAttributes, MouseEvent, useRef } from "react";
 import { Transition } from "react-transition-group";
-import { ModalPortal } from "./ui-modal-portal";
+import { UIModalPortal } from "./ui-modal-portal";
 
 import "./animate.css";
 
@@ -39,10 +39,10 @@ export const UIModal = ({
     >
       {(state) => {
         return (
-          <ModalPortal>
+          <UIModalPortal>
             <section
               className={clsx(
-                "fixed top-0 left-0 right-0 bottom-0 transition-all",
+                "fixed top-0 left-0 right-0 bottom-0 transition-all z-50",
                 "flex items-center justify-center",
                 "bg-neutral-900/40 backdrop-blur",
                 `ui-modal-${state}`,
@@ -61,7 +61,7 @@ export const UIModal = ({
                 data-id="modal-window"
               />
             </section>
-          </ModalPortal>
+          </UIModalPortal>
         );
       }}
     </Transition>

@@ -25,7 +25,7 @@ export const ProjectFormFacade = ({
       {...props}
       className={clsx(
         className,
-        "flex flex-col py-7 overflow-hidden",
+        "flex flex-col py-7 overflow-hidden z-30",
         "fixed right-0 top-0 max-w-[700px] w-full h-screen transition-transform duration-500",
         "bg-neutral-600 border-l-2 border-l-primary-600",
         isOpen ? "transform-none" : "translate-x-full",

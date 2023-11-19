@@ -29,7 +29,7 @@ export default function RootLayout({
       >
         <Header />
         <Providers>
-          <main className="flex-1">{children}</main>
+          <main className="relative flex-1 mt-[80px] z-10">{children}</main>
           <Footer />
           <div id="modal-portal"></div>
         </Providers>

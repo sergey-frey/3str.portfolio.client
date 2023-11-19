@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
-export const ModalPortal = ({ children }: { children: ReactNode }) => {
+export const UIModalPortal = ({ children }: { children: ReactNode }) => {
   const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {

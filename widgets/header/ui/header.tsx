@@ -2,7 +2,9 @@ import clsx from "clsx";
 
 export const Header = () => {
   return (
-    <header className={clsx("fixed w-full flex gap-[10px] px-4", "lg:px-10")}>
+    <header
+      className={clsx("fixed w-full flex gap-[10px] px-4 z-20", "lg:px-10")}
+    >
       <div
         className={clsx(
           "text-primary-500 bg-neutral-1 text-h3 font-h3 px-5 py-4 backdrop-blur-md rounded-b-md",
