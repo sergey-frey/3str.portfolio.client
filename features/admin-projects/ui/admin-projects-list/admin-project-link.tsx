@@ -1,3 +1,4 @@
+import { UILink } from "@/shared/ui";
 import clsx from "clsx";
 import { HTMLAttributes, ReactNode } from "react";
 
@@ -24,16 +25,9 @@ export const AdminProjectLink = ({
       className={clsx(className, "flex items-center gap-2 text-primary-300")}
     >
       {icon}
-      <a
-        href={href}
-        target="_blank"
-        className={clsx(
-          "underline underline-offset-2 transition-all",
-          "hover:underline hover:underline-offset-4",
-        )}
-      >
+      <UILink href={href} component="a" inNewTab>
         {text}
-      </a>
+      </UILink>
     </div>
   );
 };

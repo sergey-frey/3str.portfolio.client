@@ -1,5 +1,5 @@
 import { ProjectDto, SkillDto } from "@/shared/api/generated";
-import { UIBadge, UILink } from "@/shared/ui";
+import { UIBadge, UIIconLink } from "@/shared/ui";
 import { GitHubIcon, OpenIcon } from "@/shared/ui/icons";
 import clsx from "clsx";
 import { HTMLAttributes } from "react";
@@ -33,20 +33,20 @@ export const ProjectsList = ({
                 selectedSkills={selectedSkills}
                 actions={
                   <div className="flex gap-2">
-                    <UILink
+                    <UIIconLink
                       className="px-[8px]"
                       href={project.deploy}
                       target="_blank"
                     >
                       <OpenIcon width={19} height={19} />
-                    </UILink>
-                    <UILink
+                    </UIIconLink>
+                    <UIIconLink
                       className="px-[8px]"
                       href={project.github}
                       target="_blank"
                     >
                       <GitHubIcon width={20} height={20} />
-                    </UILink>
+                    </UIIconLink>
                   </div>
                 }
               />

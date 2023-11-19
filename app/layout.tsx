@@ -1,3 +1,4 @@
+import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
 import { Providers } from "@/widgets/providers/providers";
 import clsx from "clsx";
@@ -22,13 +23,15 @@ export default function RootLayout({
       <body
         className={clsx(
           montserrat.className,
+          "flex flex-col",
           "bg-neutral-900 text-neutral-100 font-[14px] md:font-[16px]",
         )}
       >
         <Header />
         <Providers>
-          {children}
-          <div id="modal-portal" ></div>
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <div id="modal-portal"></div>
         </Providers>
       </body>
     </html>

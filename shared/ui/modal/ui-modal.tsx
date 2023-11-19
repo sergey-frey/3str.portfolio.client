@@ -1,3 +1,5 @@
+"use client";
+
 import clsx from "clsx";
 import { HTMLAttributes, MouseEvent, useRef } from "react";
 import { Transition } from "react-transition-group";
