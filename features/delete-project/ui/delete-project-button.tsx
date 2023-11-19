@@ -22,7 +22,14 @@ export const DeleteProjectButton = ({
       onClick(e);
     }
 
+    console.log(projectId);
+
     setIsShowConfirm(true);
+  };
+
+  const handleConfirm = () => {
+    deleteProjectMutation.mutate(projectId);
+    setIsShowConfirm(false);
   };
 
   return (
@@ -36,7 +43,7 @@ export const DeleteProjectButton = ({
           { type: "not-confirm", label: "Отмена" },
           { type: "confirm", label: "Да" },
         ]}
-        onConfirm={() => deleteProjectMutation.mutate(projectId)}
+        onConfirm={handleConfirm}
       />
 
       <UIButton
