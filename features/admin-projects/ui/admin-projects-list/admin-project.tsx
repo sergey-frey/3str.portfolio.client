@@ -32,7 +32,7 @@ export const AdminProject = ({
           </h3>
           <div className="flex items-center gap-2">{actions}</div>
         </div>
-        <div className="flex items-center mt-2 md:mt-0">
+        <div className="flex items-center gap-2 mt-2 md:mt-0">
           {project.labels.split(" ").map((label, index) => {
             return (
               <p
