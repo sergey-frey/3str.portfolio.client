@@ -1,6 +1,7 @@
 "use client";
 
 import { ProjectDto, SkillDto } from "@/shared/api/generated";
+import { parseLabels } from "@/shared/lib/parse-labels";
 import { UIBadge, UIImage } from "@/shared/ui";
 import clsx from "clsx";
 import { HTMLAttributes, ReactNode } from "react";
@@ -41,7 +42,7 @@ export const Project = ({
           {actions}
         </div>
         <div className="flex items-center gap-2 mt-2 md:mt-0">
-          {project.labels.split(" ").map((label, index) => {
+          {parseLabels(project.labels).map((label, index) => {
             return (
               <p
                 key={`project_${project.id}_label_${index}`}

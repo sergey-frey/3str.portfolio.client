@@ -3,7 +3,7 @@ import { valibotResolver } from "@hookform/resolvers/valibot";
 import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { ProjectFormModel } from "../types/form";
-import { parseLabels } from "./parse-labels";
+import { parseLabels } from "../../../shared/lib/parse-labels";
 import { ProjectFormSchema } from "./project-form-validation-schema";
 
 type UseEditProjectForm = {
