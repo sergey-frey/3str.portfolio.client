@@ -11,29 +11,31 @@
     "api:generate": "orval"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.3.1",
-    "@tanstack/react-query": "^4.35.0",
-    "autoprefixer": "10.4.14",
-    "axios": "^1.4.0",
-    "clsx": "^2.0.0",
-    "eslint": "8.45.0",
-    "eslint-config-next": "13.4.11",
-    "next": "^14.0.2",
-    "postcss": "8.4.27",
+    "@headlessui/react": "^1.7.17",
+    "@hookform/resolvers": "^3.3.3",
+    "@tanstack/react-query": "^5.15.5",
+    "autoprefixer": "10.4.16",
+    "axios": "^1.6.3",
+    "clsx": "^2.1.0",
+    "eslint": "8.56.0",
+    "eslint-config-next": "14.0.4",
+    "next": "^14.0.4",
+    "postcss": "8.4.32",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.46.1",
+    "react-hook-form": "^7.49.2",
     "react-transition-group": "^4.4.5",
-    "tailwindcss": "3.3.3",
-    "valibot": "^0.20.1"
+    "tailwindcss": "3.4.0",
+    "valibot": "^0.25.0",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
-    "@types/node": "^20.8.10",
-    "@types/react": "^18.2.35",
-    "@types/react-dom": "^18.2.14",
-    "@types/react-transition-group": "^4.4.9",
-    "orval": "^6.19.1",
-    "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.46",
+    "@types/react-dom": "^18.2.18",
+    "@types/react-transition-group": "^4.4.10",
+    "orval": "^6.23.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
   }
 }

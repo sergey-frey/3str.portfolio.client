@@ -1,5 +1,6 @@
 import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
+import { Periphery } from "@/widgets/periphery";
 import { Providers } from "@/widgets/providers/providers";
 import clsx from "clsx";
 import type { Metadata } from "next";
@@ -30,8 +31,9 @@ export default function RootLayout({
         <Header />
         <Providers>
           <main className="relative flex-1 mt-[80px] z-10">{children}</main>
-          <Footer />
           <div id="modal-portal"></div>
+          <Footer />
+          <Periphery />
         </Providers>
       </body>
     </html>

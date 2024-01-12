@@ -1,6 +1,6 @@
-import { useDeleteProject } from "@/entities/project";
+import { useProjectMutationsWithUIResponse } from "@/features/admin-projects";
 import { Confirm } from "@/features/confirm";
-import { UIButton, UIButtonProps, UIModal } from "@/shared/ui";
+import { UIButton, UIButtonProps } from "@/shared/ui";
 import clsx from "clsx";
 import { MouseEvent, useState } from "react";
 
@@ -15,14 +15,12 @@ export const DeleteProjectButton = ({
   ...props
 }: DeleteProjectButtonProps) => {
   const [isShowConfirm, setIsShowConfirm] = useState<boolean>(false);
-  const deleteProjectMutation = useDeleteProject();
+  const { deleteProjectMutation } = useProjectMutationsWithUIResponse();
 
   const handleDeleteProjectClick = (e: MouseEvent<HTMLButtonElement>) => {
     if (onClick) {
       onClick(e);
     }
-
-    console.log(projectId);
 
     setIsShowConfirm(true);
   };

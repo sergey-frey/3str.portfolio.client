@@ -1,12 +1,13 @@
 "use client";
 
-import { useCreateProject, useProjectsQuery } from "@/entities/project";
-import { useUpdateProject } from "@/entities/project/queries";
+import { useProjectsQuery } from "@/entities/project";
 import {
   AdminProjectsList,
   EditProject,
   ProjectFormModel,
+  useProjectMutationsWithUIResponse,
 } from "@/features/admin-projects";
+import { useToastsAPIStore } from "@/features/toasts-api";
 import { ProjectDto } from "@/shared/api/generated";
 import { UIButton } from "@/shared/ui";
 import { PlusIcon } from "@/shared/ui/icons";
@@ -16,9 +17,18 @@ export const AdminProjectsPage = () => {
   const [isCreatingProject, setIsCreatingProject] = useState<boolean>(false);
   const [editedProject, setEditedProject] = useState<ProjectDto | undefined>();
 
-  const projectsQuery = useProjectsQuery();
-  const createProjectMutation = useCreateProject();
-  const updateProjectMutation = useUpdateProject();
+  const addToast = useToastsAPIStore((state) => state.addToast);
+  const projectsQuery = useProjectsQuery({
+    onError: () => {
+      addToast({
+        status: "error",
+        title: "Ошибка",
+        text: "Не удалось загрузить проекты",
+      });
+    },
+  });
+  const { createProjectMutation, updateProjectMutation } =
+    useProjectMutationsWithUIResponse();
 
   const editProject = (id: ProjectDto["id"]) => {
     if (!projectsQuery.isSuccess) return;

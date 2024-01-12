@@ -1,9 +1,8 @@
 import { ProjectDto } from "@/shared/api/generated";
 import { valibotResolver } from "@hookform/resolvers/valibot";
-import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
-import { ProjectFormModel } from "../types/form";
 import { parseLabels } from "../../../shared/lib/parse-labels";
+import { ProjectFormModel } from "../types/form";
 import { ProjectFormSchema } from "./project-form-validation-schema";
 
 type UseEditProjectForm = {
@@ -36,14 +35,6 @@ export const useEditProjectForm = ({
     mode: "onChange",
   });
 
-  const firstInputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (project && firstInputRef.current) {
-      firstInputRef.current.focus();
-    }
-  }, [project]);
-
   const onSubmitForm = handleSubmit((data: ProjectFormModel) => {
     if (isValid) {
       onSubmit(data);
@@ -56,5 +47,5 @@ export const useEditProjectForm = ({
     reset();
   };
 
-  return { control, onSubmitForm, handleReset, firstInputRef };
+  return { control, onSubmitForm, handleReset };
 };
