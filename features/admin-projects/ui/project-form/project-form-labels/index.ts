@@ -1,1 +1,0 @@
-export { ProjectFormLabelsController } from "./controller";

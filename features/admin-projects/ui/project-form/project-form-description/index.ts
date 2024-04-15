@@ -1,1 +1,0 @@
-export { ProjectFormDescriptionController } from "./controller";

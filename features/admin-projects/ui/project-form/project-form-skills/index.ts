@@ -1,1 +1,0 @@
-export { ProjectFormSkillsController } from "./controller";

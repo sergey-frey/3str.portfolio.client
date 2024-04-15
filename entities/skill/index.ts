@@ -1,1 +1,1 @@
-export { useSkillsQuery, useDeleteSkill, useCreateSkill } from "./queries";
+export { useSkillsQuery } from "./queries";

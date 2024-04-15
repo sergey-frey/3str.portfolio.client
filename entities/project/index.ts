@@ -1,5 +1,1 @@
-export {
-  useProjectsQuery,
-  useCreateProject,
-  useDeleteProject,
-} from "./queries";
+export { useProjectsQuery } from "./queries";

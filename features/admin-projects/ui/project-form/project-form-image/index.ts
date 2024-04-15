@@ -1,1 +1,0 @@
-export { ProjectFormImageController } from "./controller";
