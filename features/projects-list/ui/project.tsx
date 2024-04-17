@@ -4,9 +4,10 @@ import type { ProjectDto, SkillDto } from "@/shared/api/types";
 import { parseLabels } from "@/shared/lib/parse-labels";
 import { UIBadge, UIImage } from "@/shared/ui";
 import clsx from "clsx";
-import type { HTMLAttributes, ReactNode } from "react";
+import { type HTMLMotionProps, motion } from "framer-motion";
+import type { ReactNode } from "react";
 
-interface ProjectProps extends HTMLAttributes<HTMLElement> {
+interface ProjectProps extends HTMLMotionProps<"article"> {
 	project: ProjectDto;
 	selectedSkills: SkillDto[];
 	actions?: ReactNode;
@@ -20,7 +21,7 @@ export const Project = ({
 	...props
 }: ProjectProps) => {
 	return (
-		<article
+		<motion.article
 			{...props}
 			className={clsx(className, "flex flex-col gap-[15px]", "md:flex-row")}
 		>
@@ -76,6 +77,6 @@ export const Project = ({
 					{project.attributes.description}
 				</p>
 			</div>
-		</article>
+		</motion.article>
 	);
 };

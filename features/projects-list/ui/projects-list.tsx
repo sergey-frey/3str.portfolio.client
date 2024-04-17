@@ -2,17 +2,20 @@ import type { ProjectDto, SkillDto } from "@/shared/api/types";
 import { UIBadge, UIIconLink } from "@/shared/ui";
 import { GitHubIcon, OpenIcon } from "@/shared/ui/icons";
 import clsx from "clsx";
+import type { HTMLMotionProps } from "framer-motion";
 import type { HTMLAttributes } from "react";
 import { Project } from "./project";
 
 interface ProjectsListProps extends HTMLAttributes<HTMLUListElement> {
 	projects: ProjectDto[];
 	selectedSkills: SkillDto[];
+	projectsAnimationProps: (projectIndex: number) => HTMLMotionProps<"base">;
 }
 
 export const ProjectsList = ({
 	projects,
 	selectedSkills,
+	projectsAnimationProps = () => ({}),
 	className,
 	...props
 }: ProjectsListProps) => {
@@ -25,10 +28,11 @@ export const ProjectsList = ({
 				{...props}
 				className={clsx(className, "w-full flex flex-col gap-10 mt-4")}
 			>
-				{projects.map((project) => {
+				{projects.map((project, i) => {
 					return (
 						<li key={`project_${project.id}`}>
 							<Project
+								{...projectsAnimationProps(i)}
 								project={project}
 								selectedSkills={selectedSkills}
 								actions={

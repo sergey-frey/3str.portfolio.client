@@ -12,6 +12,7 @@ import { type HTMLAttributes, useContext, useEffect } from "react";
 import { SkillsContext, SkillsProvider } from "../context/skills-provider";
 import { getFilteredProjects } from "../model/projects-filter";
 import { ProjectsResearchLayout } from "./projects-research-layout";
+import { useAnimationControls } from "framer-motion";
 
 interface ProjectsResearchProps extends HTMLAttributes<HTMLElement> {}
 
@@ -43,7 +44,7 @@ const ProjectsResearchComponent = ({ ...props }: ProjectsResearchProps) => {
 			{...props}
 			skillsFilter={
 				<UILoadableContent
-					loader={<BadgeListSkeleton count={25} minWidth={70} maxWidth={150} />}
+					loader={<BadgeListSkeleton count={15} minWidth={70} maxWidth={150} />}
 					isLoading={skillsQuery.isLoading}
 					canShow={skillsQuery.isSuccess}
 				>
@@ -62,6 +63,22 @@ const ProjectsResearchComponent = ({ ...props }: ProjectsResearchProps) => {
 					<ProjectsList
 						projects={filteredProjects}
 						selectedSkills={selectedSkills}
+						projectsAnimationProps={(projectIndex) => ({
+							initial: {
+								zoom: 0.8,
+							},
+							animate: {
+								zoom: 1,
+							},
+							transition: {
+								type: "tween",
+								duration: 0.25,
+								delay: 0.1 * projectIndex,
+							},
+							viewport: {
+								once: true,
+							},
+						})}
 					/>
 				</UILoadableContent>
 			}
