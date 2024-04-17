@@ -25,7 +25,7 @@ export const Project = ({
 			className={clsx(className, "flex flex-col gap-[15px]", "md:flex-row")}
 		>
 			<UIImage
-				src={project.attributes.image.data[0].attributes.formats.medium.url}
+				src={project.attributes.image.data[0].attributes.url}
 				alt={`${project.attributes.title} main image`}
 				className={clsx(
 					"w-full h-auto rounded-xl shadow-primary-500 shadow-sm md:max-w-xs lg:max-w-md",

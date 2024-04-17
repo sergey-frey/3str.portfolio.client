@@ -1,15 +1,17 @@
 export interface ProjectDto {
 	id: number;
 	attributes: {
-		deploy: string;
+		deploy: string | null;
 		description: string;
-		github: string;
+		github: string | null;
 		image: {
 			data: ProjectImage[];
 		};
 		labels: string;
 		skills: { data: SkillDto[] };
 		title: string;
+		updatedAt: string;
+		publishedAt: string;
 	};
 }
 
@@ -17,6 +19,9 @@ export interface SkillDto {
 	id: number;
 	attributes: {
 		title: string;
+		createdAt?: string;
+		updatedAt?: string;
+		publishedAt?: string;
 	};
 }
 
@@ -26,6 +31,13 @@ export type ProjectImage = {
 		name: string;
 		width: number;
 		height: number;
+		alternativeText: string | null;
+		hash: string;
+		ext: string;
+		mime: string;
+		size: number;
+		url: string;
+		updatedAt: string;
 		formats: {
 			thumbnail: ProjectImageFormat;
 			large: ProjectImageFormat;
@@ -43,6 +55,6 @@ type ProjectImageFormat = {
 	width: number;
 	height: number;
 	size: number;
-	sieInBytes: number;
+	sizeInBytes: number;
 	url: string;
 };
