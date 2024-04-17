@@ -1,5 +1,3 @@
-"use client";
-
-import { ProjectsPage } from "@/pages/projects-page";
+import { ProjectsPage } from "@/app-pages/projects-page";
 
 export default ProjectsPage;
