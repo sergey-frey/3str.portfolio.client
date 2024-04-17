@@ -73,4 +73,22 @@ export const SKILLS: SkillDto[] = [
 			publishedAt: "2024-04-15T17:38:07.420Z",
 		},
 	},
+	{
+		id: 9,
+		attributes: {
+			title: "Svelte",
+			createdAt: "2024-04-15T17:38:06.730Z",
+			updatedAt: "2024-04-15T17:38:07.421Z",
+			publishedAt: "2024-04-15T17:38:07.420Z",
+		},
+	},
+	{
+		id: 10,
+		attributes: {
+			title: "Advanced Vite",
+			createdAt: "2024-04-15T17:38:06.730Z",
+			updatedAt: "2024-04-15T17:38:07.421Z",
+			publishedAt: "2024-04-15T17:38:07.420Z",
+		},
+	},
 ];
