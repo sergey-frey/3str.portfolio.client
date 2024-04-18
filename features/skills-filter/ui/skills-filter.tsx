@@ -1,6 +1,7 @@
 "use client";
 
 import type { SkillDto } from "@/shared/api/types";
+import type { HTMLMotionProps } from "framer-motion";
 import { type HTMLAttributes, useEffect, useState } from "react";
 import { FilterField } from "./filter-field";
 import { SkillsList } from "./skills-list";
@@ -8,11 +9,13 @@ import { SkillsList } from "./skills-list";
 interface SkillsFilterProps extends HTMLAttributes<HTMLElement> {
 	skills: SkillDto[];
 	onChangeSkills: (skills: SkillDto[]) => void;
+	skillsAnimationProps?: (skillIndex: number) => HTMLMotionProps<"li">;
 }
 
 export const SkillsFilter = ({
 	skills,
 	onChangeSkills,
+	skillsAnimationProps = () => ({}),
 	...props
 }: SkillsFilterProps) => {
 	const [selectedSkills, setSelectedSkills] = useState<SkillDto[]>([]);
@@ -40,6 +43,7 @@ export const SkillsFilter = ({
 				className="mt-2"
 				freeSkills={freeSkills}
 				onSelectSkill={handleSelectSkill}
+				skillsAnimationProps={skillsAnimationProps}
 			/>
 		</section>
 	);
