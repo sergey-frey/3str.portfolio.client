@@ -7,7 +7,7 @@ import { UIBreadcrumbs } from "@/shared/ui/breadcrumbs";
 import { ProjectLabel } from "@/shared/ui/project-label";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { redirect } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
 import {
 	getDescriptionAnimationProps,
 	getHeaderAnimationProps,
@@ -19,6 +19,7 @@ import { OneProjectPageSkeleton } from "./skeletons/one-project-page-skeleton";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import { errorURL } from "../constants";
 
 type OnePageParams = {
 	params: {
@@ -30,13 +31,13 @@ export const OneProjectPage = ({ params }: OnePageParams) => {
 	const projectId = params.projectId;
 
 	if (!projectId || Array.isArray(projectId) || !Number(projectId)) {
-		redirect("/projects?error=invalid-project-id");
+		redirect(errorURL, RedirectType.replace);
 	}
 
 	const projectQuery = useProjectByIdQuery(Number(projectId));
 
 	if (projectQuery.error) {
-		redirect("/projects?error=invalid-project-id");
+		redirect(errorURL, RedirectType.replace);
 	}
 
 	const labels = parseLabels(projectQuery.data?.attributes.labels ?? "");

@@ -15,6 +15,7 @@ import {
 	getSkillsAnimationProps,
 } from "../model/animation-functions";
 import { getFilteredProjects } from "../model/projects-filter";
+import { useErrorHandling } from "../model/use-error-handling";
 import { ProjectsResearchLayout } from "./projects-research-layout";
 
 interface ProjectsResearchProps extends HTMLAttributes<HTMLElement> {}
@@ -41,6 +42,14 @@ const ProjectsResearchComponent = ({ ...props }: ProjectsResearchProps) => {
 			});
 		}
 	}, [addToast, projectsQuery.error]);
+
+	// Это необходимо т.к станица рендерится дважды - скелетоны и данные
+	// Чтобы тосты не двоились, ждём завершения запроса
+	useErrorHandling({
+		pageReady: !projectsQuery.isLoading,
+	});
+
+	console.log("render");
 
 	return (
 		<ProjectsResearchLayout
