@@ -16,6 +16,7 @@ import {
 } from "../model/animation-functions";
 import { getFilteredProjects } from "../model/projects-filter";
 import { useErrorHandling } from "../model/use-error-handling";
+import { ProjectsNotFoundStub } from "./projects-not-found-stub";
 import { ProjectsResearchLayout } from "./projects-research-layout";
 
 interface ProjectsResearchProps extends HTMLAttributes<HTMLElement> {}
@@ -77,6 +78,7 @@ const ProjectsResearchComponent = ({ ...props }: ProjectsResearchProps) => {
 						projects={filteredProjects}
 						selectedSkills={selectedSkills}
 						projectsAnimationProps={getProjectsAnimationProps}
+						projectsNotFountStub={<ProjectsNotFoundStub />}
 					/>
 				</UILoadableContent>
 			}

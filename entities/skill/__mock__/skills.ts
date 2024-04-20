@@ -91,4 +91,22 @@ export const SKILLS: SkillDto[] = [
 			publishedAt: "2024-04-15T17:38:07.420Z",
 		},
 	},
+	{
+		id: 11,
+		attributes: {
+			title: "Framer motion",
+			createdAt: "2024-04-15T17:38:06.730Z",
+			updatedAt: "2024-04-15T17:38:07.421Z",
+			publishedAt: "2024-04-15T17:38:07.420Z",
+		},
+	},
+	{
+		id: 12,
+		attributes: {
+			title: "FSD",
+			createdAt: "2024-04-15T17:38:06.730Z",
+			updatedAt: "2024-04-15T17:38:07.421Z",
+			publishedAt: "2024-04-15T17:38:07.420Z",
+		},
+	},
 ];

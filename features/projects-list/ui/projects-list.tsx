@@ -3,22 +3,28 @@ import { UIBadge, UIIconLink } from "@/shared/ui";
 import { GitHubIcon, OpenIcon } from "@/shared/ui/icons";
 import clsx from "clsx";
 import type { HTMLMotionProps } from "framer-motion";
-import type { HTMLAttributes } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 import { Project } from "./project";
 
 interface ProjectsListProps extends HTMLAttributes<HTMLUListElement> {
 	projects: ProjectDto[];
 	selectedSkills: SkillDto[];
 	projectsAnimationProps: (projectIndex: number) => HTMLMotionProps<"base">;
+	projectsNotFountStub?: ReactNode;
 }
 
 export const ProjectsList = ({
 	projects,
 	selectedSkills,
 	projectsAnimationProps = () => ({}),
+	projectsNotFountStub = null,
 	className,
 	...props
 }: ProjectsListProps) => {
+	if (!projects.length) {
+		return <>{projectsNotFountStub}</>;
+	}
+
 	return (
 		<div className="gap-3">
 			<UIBadge className="inline-block hover:bg-neutral-600 cursor-default">
