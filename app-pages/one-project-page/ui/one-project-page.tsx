@@ -2,7 +2,8 @@
 
 import { useProjectByIdQuery } from "@/entities/project";
 import { parseLabels } from "@/shared/lib/parse-labels";
-import { UIBadge, UILink, UILoadableContent, UISkeleton } from "@/shared/ui";
+import { UIBadge, UILink, UILoadableContent } from "@/shared/ui";
+import { UIBreadcrumbs } from "@/shared/ui/breadcrumbs";
 import { ProjectLabel } from "@/shared/ui/project-label";
 import clsx from "clsx";
 import { motion } from "framer-motion";
@@ -11,7 +12,6 @@ import {
 	getDescriptionAnimationProps,
 	getHeaderAnimationProps,
 	getLinksAnimationProps,
-	getSkillAnimationProps,
 } from "../model/animation-functions";
 import { OneProjectPageFacade } from "./facades/one-project-page-facade";
 import { ProjectImagesSwiper } from "./project-images-swiper";
@@ -19,7 +19,6 @@ import { OneProjectPageSkeleton } from "./skeletons/one-project-page-skeleton";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import { UIBreadcrumbs } from "@/shared/ui/breadcrumbs";
 
 type OnePageParams = {
 	params: {
@@ -132,16 +131,13 @@ export const OneProjectPage = ({ params }: OnePageParams) => {
 					<ul className="flex flex-wrap gap-3">
 						{skills.map((skill, i) => {
 							return (
-								<motion.li
-									key={`project_skill_${String(i)}`}
-									{...getSkillAnimationProps(i)}
-								>
-									<UIBadge className="pointer-events-none">
+								<li key={`project_skill_${String(i)}`}>
+									<UIBadge className="pointer-events-none" disabled>
 										<p className="whitespace-nowrap">
 											{skill.attributes.title}
 										</p>
 									</UIBadge>
-								</motion.li>
+								</li>
 							);
 						})}
 					</ul>

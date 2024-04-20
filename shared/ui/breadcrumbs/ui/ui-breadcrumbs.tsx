@@ -22,6 +22,7 @@ export const UIBreadcrumbs = ({
 		<article {...props} className={clsx("flex items-center gap-2", className)}>
 			{path.map((crumb, i) => {
 				const isLastPoint = i === path.length - 1;
+				const tabIndex = crumb.isCurrent ? -1 : 0;
 
 				return (
 					<span key={`crumb_${String(i)}`} className="flex items-center gap-2">
@@ -32,6 +33,8 @@ export const UIBreadcrumbs = ({
 								isLastPoint && "pointer-events-none",
 								crumb.isCurrent ? "text-primary-300" : "text-neutral-300",
 							)}
+							aria-hidden={crumb.isCurrent}
+							tabIndex={tabIndex}
 							href={crumb.path}
 						>
 							{crumb.label}

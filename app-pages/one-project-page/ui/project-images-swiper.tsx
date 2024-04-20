@@ -1,12 +1,12 @@
 import type { ProjectDto } from "@/shared/api/types";
-import { UIImage, UILoadableContent } from "@/shared/ui";
+import { UIImage } from "@/shared/ui";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import clsx from "clsx";
 import type { HTMLAttributes } from "react";
 import { Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { swiperPaginationOptions } from "../constants";
 import { ProjectImageSwiperArrow } from "./project-image-swiper-arrow";
-import clsx from "clsx";
 
 type ProjectImagesSwiperProps = HTMLAttributes<HTMLDivElement> & {
 	project: ProjectDto;
@@ -18,8 +18,6 @@ export const ProjectImagesSwiper = ({
 	...props
 }: ProjectImagesSwiperProps) => {
 	const images = project.attributes.image.data;
-
-	console.log(images.length);
 
 	return (
 		<div {...props} className={clsx("relative", className)}>
