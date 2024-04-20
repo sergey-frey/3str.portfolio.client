@@ -1,20 +1,19 @@
-import Image, { ImageProps } from "next/image";
+import Image, { type ImageProps } from "next/image";
 
 export const UIImage = ({
-  alt,
-  onLoadingComplete,
-  width,
-  height,
-  className,
-  ...props
+	alt,
+	width,
+	height,
+	className,
+	...props
 }: ImageProps) => {
-  return (
-    <Image
-      {...props}
-      className={className}
-      width={width}
-      height={height}
-      alt={alt}
-    />
-  );
+	return (
+		<Image
+			{...props}
+			className={className}
+			width={width}
+			height={height}
+			alt={alt}
+		/>
+	);
 };
