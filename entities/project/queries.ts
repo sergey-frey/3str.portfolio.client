@@ -20,11 +20,22 @@ const getAllProjects = async () => {
 	return PROJECTS;
 };
 
+const getProjectById = async (id: number) => {
+	return PROJECTS.find((project) => project.id === id);
+};
+
 const projectsKey = ["projects"];
 
 export const useProjectsQuery = () => {
 	return useQuery({
 		queryFn: getAllProjects,
 		queryKey: projectsKey,
+	});
+};
+
+export const useProjectByIdQuery = (id: number) => {
+	return useQuery({
+		queryFn: () => getProjectById(id),
+		queryKey: projectsKey.concat([`project-${id}`]),
 	});
 };

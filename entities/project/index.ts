@@ -1,1 +1,1 @@
-export { useProjectsQuery } from "./queries";
+export { useProjectsQuery, useProjectByIdQuery } from "./queries";
