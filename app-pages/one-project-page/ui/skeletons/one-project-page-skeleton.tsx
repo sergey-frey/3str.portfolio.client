@@ -5,8 +5,9 @@ import clsx from "clsx";
 export const OneProjectPageSkeleton = () => {
 	return (
 		<section className="px-4 lg:px-10 pb-[100px] max-w-[800px] mx-auto">
-			<div className="flex items-center gap-3">
+			<div className="flex flex-col gap-4">
 				<UISkeleton className="w-[30%] h-10 min-w-[200px]" />
+				<UISkeleton className="w-[300px] h-6" />
 			</div>
 
 			<UISkeleton className="w-full aspect-video mt-4" />

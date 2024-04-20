@@ -19,6 +19,7 @@ import { OneProjectPageSkeleton } from "./skeletons/one-project-page-skeleton";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import { UIBreadcrumbs } from "@/shared/ui/breadcrumbs";
 
 type OnePageParams = {
 	params: {
@@ -58,6 +59,22 @@ export const OneProjectPage = ({ params }: OnePageParams) => {
 					>
 						{projectQuery.data?.attributes.title}
 					</motion.h1>
+				}
+				breadcrumbs={
+					<UIBreadcrumbs
+						path={[
+							{
+								label: "Проекты",
+								path: "/projects",
+								isCurrent: false,
+							},
+							{
+								label: projectQuery.data?.attributes.title ?? "",
+								path: "",
+								isCurrent: true,
+							},
+						]}
+					/>
 				}
 				swiper={
 					<>

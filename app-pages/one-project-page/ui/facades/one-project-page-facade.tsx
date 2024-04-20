@@ -9,10 +9,12 @@ type OneProjectPageFacadeProps = {
 	deployLink: ReactNode;
 	labels: ReactNode;
 	skills: ReactNode;
+	breadcrumbs: ReactNode;
 };
 
 export const OneProjectPageFacade = ({
 	title,
+	breadcrumbs,
 	swiper,
 	description,
 	githubLink,
@@ -22,7 +24,10 @@ export const OneProjectPageFacade = ({
 }: OneProjectPageFacadeProps) => {
 	return (
 		<section className="px-4 lg:px-10 pb-[100px] max-w-[800px] mx-auto">
-			<div className="flex items-center gap-3">{title}</div>
+			<div className="flex flex-col gap-3">
+				{title}
+				{breadcrumbs}
+			</div>
 
 			<div className="mt-4">{swiper}</div>
 
