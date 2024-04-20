@@ -30,7 +30,7 @@ export default function RootLayout({
 			>
 				<Header />
 				<Providers>
-					<main className="relative flex-1 mt-[80px] z-10 container mx-auto">
+					<main className="relative flex-1 mt-[60px] z-10 container mx-auto">
 						{children}
 					</main>
 					<div id="modal-portal" />
