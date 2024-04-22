@@ -6,7 +6,7 @@ import { UIBadge, UILink, UILoadableContent } from "@/shared/ui";
 import { UIBreadcrumbs } from "@/shared/ui/breadcrumbs";
 import { ProjectLabel } from "@/shared/ui/project-label";
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { domAnimation, LazyMotion, m } from "framer-motion";
 import { redirect, RedirectType } from "next/navigation";
 import {
 	getDescriptionAnimationProps,
@@ -53,12 +53,14 @@ export const OneProjectPage = ({ params }: OnePageParams) => {
 		>
 			<OneProjectPageFacade
 				title={
-					<motion.h1
-						className="text-h2 font-h2 lg:text-h1 lg:font-h1"
-						{...getHeaderAnimationProps()}
-					>
-						{projectQuery.data?.attributes.title}
-					</motion.h1>
+					<LazyMotion features={domAnimation}>
+						<m.h1
+							className="text-h2 font-h2 lg:text-h1 lg:font-h1"
+							{...getHeaderAnimationProps()}
+						>
+							{projectQuery.data?.attributes.title}
+						</m.h1>
+					</LazyMotion>
 				}
 				breadcrumbs={
 					<UIBreadcrumbs
@@ -87,35 +89,46 @@ export const OneProjectPage = ({ params }: OnePageParams) => {
 					</>
 				}
 				description={
-					<motion.p
-						className={clsx("text-m text-neutral-400")}
-						{...getDescriptionAnimationProps()}
-					>
-						{projectQuery.data?.attributes.description}
-					</motion.p>
+					<LazyMotion features={domAnimation}>
+						<m.p
+							className={clsx("text-m text-neutral-400")}
+							{...getDescriptionAnimationProps()}
+						>
+							{projectQuery.data?.attributes.description}
+						</m.p>
+					</LazyMotion>
 				}
 				githubLink={
-					<motion.div {...getLinksAnimationProps(0.2)}>
-						{githubUrl && (
-							<UILink
-								component="a"
-								href={githubUrl}
-								inNewTab
-								className="first:mt-5"
-							>
-								Посетить GitHub проекта
-							</UILink>
-						)}
-					</motion.div>
+					<LazyMotion features={domAnimation}>
+						<m.div {...getLinksAnimationProps(0.2)}>
+							{githubUrl && (
+								<UILink
+									component="a"
+									href={githubUrl}
+									inNewTab
+									className="first:mt-5"
+								>
+									Посетить GitHub проекта
+								</UILink>
+							)}
+						</m.div>
+					</LazyMotion>
 				}
 				deployLink={
-					<motion.div {...getLinksAnimationProps(0.4)}>
-						{deployUrl && (
-							<UILink component="a" href={deployUrl} inNewTab className="pt-5">
-								Посмотреть на сам проект
-							</UILink>
-						)}
-					</motion.div>
+					<LazyMotion features={domAnimation}>
+						<m.div {...getLinksAnimationProps(0.4)}>
+							{deployUrl && (
+								<UILink
+									component="a"
+									href={deployUrl}
+									inNewTab
+									className="pt-5"
+								>
+									Посмотреть на сам проект
+								</UILink>
+							)}
+						</m.div>
+					</LazyMotion>
 				}
 				labels={
 					<ul className="flex flex-wrap gap-3">

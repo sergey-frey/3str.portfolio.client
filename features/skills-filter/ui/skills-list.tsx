@@ -1,8 +1,14 @@
 import type { SkillDto } from "@/shared/api/types";
 import { UIBadge } from "@/shared/ui";
 import clsx from "clsx";
-import { type HTMLMotionProps, motion } from "framer-motion";
-import { useEffect, useRef, type HTMLAttributes } from "react";
+import {
+	type HTMLMotionProps,
+	LazyMotion,
+	domAnimation,
+	m,
+	motion,
+} from "framer-motion";
+import { type HTMLAttributes, useEffect, useRef } from "react";
 
 interface SkillsListProps extends HTMLAttributes<HTMLUListElement> {
 	freeSkills: SkillDto[];
@@ -33,14 +39,13 @@ export const SkillsList = ({
 				const animationIndex = isRerender ? 0 : i;
 
 				return (
-					<motion.li
-						key={`free_skill_${skill.id}`}
-						{...skillsAnimationProps(animationIndex)}
-					>
-						<UIBadge onClick={() => onSelectSkill(skill)}>
-							<p className="whitespace-nowrap">{skill.attributes.title}</p>
-						</UIBadge>
-					</motion.li>
+					<LazyMotion key={`free_skill_${skill.id}`} features={domAnimation}>
+						<m.li {...skillsAnimationProps(animationIndex)}>
+							<UIBadge onClick={() => onSelectSkill(skill)}>
+								<p className="whitespace-nowrap">{skill.attributes.title}</p>
+							</UIBadge>
+						</m.li>
+					</LazyMotion>
 				);
 			})}
 		</ul>
