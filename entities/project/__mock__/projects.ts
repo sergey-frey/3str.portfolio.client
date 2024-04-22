@@ -122,6 +122,15 @@ export const PROJECTS: ProjectDto[] = [
 							publishedAt: "2024-04-15T17:38:07.420Z",
 						},
 					},
+					{
+						id: 13,
+						attributes: {
+							title: "Git",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
 				],
 			},
 		},
@@ -241,6 +250,15 @@ export const PROJECTS: ProjectDto[] = [
 						id: 10,
 						attributes: {
 							title: "Advanced Vite",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+					{
+						id: 13,
+						attributes: {
+							title: "Git",
 							createdAt: "2024-04-15T17:38:06.730Z",
 							updatedAt: "2024-04-15T17:38:07.421Z",
 							publishedAt: "2024-04-15T17:38:07.420Z",
@@ -366,6 +384,15 @@ export const PROJECTS: ProjectDto[] = [
 							title: "Jest",
 							updatedAt: "2024-04-15T10:47:27.521Z",
 							publishedAt: "2024-04-15T10:47:27.520Z",
+						},
+					},
+					{
+						id: 13,
+						attributes: {
+							title: "Git",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
 						},
 					},
 				],
