@@ -50,8 +50,6 @@ const ProjectsResearchComponent = ({ ...props }: ProjectsResearchProps) => {
 		pageReady: !projectsQuery.isLoading,
 	});
 
-	console.log("render");
-
 	return (
 		<ProjectsResearchLayout
 			{...props}

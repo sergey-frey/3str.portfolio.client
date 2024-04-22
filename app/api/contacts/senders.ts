@@ -16,10 +16,14 @@ export const sendToTelegram = async (message: string) => {
 	url.searchParams.append("chat_id", CHAT_ID);
 	url.searchParams.append("text", message);
 
-  console.log(url.toString())
+  console.log(url.toString());
 
 	try {
-		ky.get(url.toString());
+		const response = await ky.get(url.toString());
+
+    if (response.status !== 200) {
+      throw new Error("Failed to send message to Telegram");
+    }
 	} catch (e) {
 		console.error(e);
 		throw new Error("Failed to send message to Telegram");
