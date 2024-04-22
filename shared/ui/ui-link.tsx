@@ -2,7 +2,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import type { HTMLAttributes } from "react";
 
-type UILinkProps = HTMLAttributes<HTMLElement> & {
+export type UILinkProps = HTMLAttributes<HTMLElement> & {
 	component?: "a" | "Link";
 	href: string;
 	inNewTab?: boolean;

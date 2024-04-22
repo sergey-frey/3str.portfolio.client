@@ -7,5 +7,5 @@ export { InfoIcon } from "./info-icon";
 export { OpenIcon } from "./open-icon";
 export { PlusIcon } from "./plus-icon";
 export { SuccessIcon } from "./success-icon";
+export { TelegramIcon } from "./telegram-icon";
 export { WarningIcon } from "./warning-icon";
-
