@@ -16,6 +16,8 @@ export const sendToTelegram = async (message: string) => {
 	url.searchParams.append("chat_id", CHAT_ID);
 	url.searchParams.append("text", message);
 
+  console.log(url.toString())
+
 	try {
 		ky.get(url.toString());
 	} catch (e) {
