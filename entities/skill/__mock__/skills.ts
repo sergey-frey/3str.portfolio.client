@@ -118,4 +118,67 @@ export const SKILLS: SkillDto[] = [
 			publishedAt: "2024-04-15T17:38:07.420Z",
 		},
 	},
+	{
+		id: 20,
+		attributes: {
+			title: "react-hook-form",
+			createdAt: "2024-04-15T17:38:06.730Z",
+			updatedAt: "2024-04-15T17:38:07.421Z",
+			publishedAt: "2024-04-15T17:38:07.420Z",
+		},
+	},
+	{
+		id: 14,
+		attributes: {
+			title: "Orval",
+			createdAt: "2024-04-15T17:38:06.730Z",
+			updatedAt: "2024-04-15T17:38:07.421Z",
+			publishedAt: "2024-04-15T17:38:07.420Z",
+		},
+	},
+	{
+		id: 15,
+		attributes: {
+			title: "React Query",
+			createdAt: "2024-04-15T17:38:06.730Z",
+			updatedAt: "2024-04-15T17:38:07.421Z",
+			publishedAt: "2024-04-15T17:38:07.420Z",
+		},
+	},
+	{
+		id: 16,
+		attributes: {
+			title: "Nest",
+			createdAt: "2024-04-15T17:38:06.730Z",
+			updatedAt: "2024-04-15T17:38:07.421Z",
+			publishedAt: "2024-04-15T17:38:07.420Z",
+		},
+	},
+	{
+		id: 17,
+		attributes: {
+			title: "PrismaORM",
+			createdAt: "2024-04-15T17:38:06.730Z",
+			updatedAt: "2024-04-15T17:38:07.421Z",
+			publishedAt: "2024-04-15T17:38:07.420Z",
+		},
+	},
+	{
+		id: 18,
+		attributes: {
+			title: "Authentication",
+			createdAt: "2024-04-15T17:38:06.730Z",
+			updatedAt: "2024-04-15T17:38:07.421Z",
+			publishedAt: "2024-04-15T17:38:07.420Z",
+		},
+	},
+	{
+		id: 19,
+		attributes: {
+			title: "crxjs",
+			createdAt: "2024-04-15T17:38:06.730Z",
+			updatedAt: "2024-04-15T17:38:07.421Z",
+			publishedAt: "2024-04-15T17:38:07.420Z",
+		},
+	},
 ];

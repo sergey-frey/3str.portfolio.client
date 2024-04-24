@@ -2,6 +2,9 @@ import type { ProjectDto } from "@/shared/api/types";
 import munchkinCounterMain from "./assets/munchkin_counter.png";
 import getadsMain from "./assets/getads-main.png";
 import designPrismaMain from "./assets/design-prisma.png";
+import wbsMain from "./assets/WBS-main.png";
+import wbsServerMain from "./assets/WBS-server-main.png";
+import wbsExtMain from "./assets/WBS-ext-main.png";
 
 export const PROJECTS: ProjectDto[] = [
 	{
@@ -126,6 +129,410 @@ export const PROJECTS: ProjectDto[] = [
 						id: 13,
 						attributes: {
 							title: "Git",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+				],
+			},
+		},
+	},
+	{
+		id: 4,
+		attributes: {
+			description:
+				"WBS (Web Block Service) - сервис для блокировки контента в браузере. Это клиентская часть - админка для управления блокируемыми ресурсами. Реализована регистрация и авторизация, кэширование и инвалидация данных. Проект сделан специально для портфолио и нигде не размещён, но вы можете запустить его локально, следуя инструкциям в README",
+			title: "WBS [Client]",
+			labels: "self-education fullstack",
+			updatedAt: "2024-04-15T17:47:49.060Z",
+			publishedAt: "2024-04-15T17:43:52.835Z",
+			github: "https://github.com/3str-webdev/web-block-service-client",
+			deploy: "",
+			image: {
+				data: [
+					{
+						id: 3,
+						attributes: {
+							name: "WBS-main.png",
+							alternativeText: null,
+							width: 2514,
+							height: 1420,
+							formats: {
+								thumbnail: {
+									name: "",
+									hash: "",
+									ext: ".png",
+									mime: "image/png",
+									width: 234,
+									height: 156,
+									size: 31.62,
+									sizeInBytes: 31621,
+									url: "",
+								},
+								small: {
+									name: "",
+									hash: "",
+									ext: ".png",
+									mime: "image/png",
+									width: 500,
+									height: 333,
+									size: 103.43,
+									sizeInBytes: 103434,
+									url: "",
+								},
+								medium: {
+									name: "",
+									hash: "",
+									ext: ".png",
+									mime: "image/png",
+									width: 750,
+									height: 500,
+									size: 199.36,
+									sizeInBytes: 199358,
+									url: "",
+								},
+								large: {
+									name: "",
+									hash: "",
+									ext: ".png",
+									mime: "image/png",
+									width: 1000,
+									height: 666,
+									size: 314.16,
+									sizeInBytes: 314163,
+									url: "",
+								},
+							},
+							hash: "WBS_main_7599ceb445",
+							ext: ".png",
+							mime: "image/png",
+							size: 437.25,
+							url: wbsMain.src,
+							updatedAt: "2024-04-15T17:42:54.734Z",
+						},
+					},
+				],
+			},
+			skills: {
+				data: [
+					{
+						id: 6,
+						attributes: {
+							title: "Next",
+							createdAt: "2024-04-15T17:37:33.694Z",
+							updatedAt: "2024-04-15T17:37:38.011Z",
+							publishedAt: "2024-04-15T17:37:38.009Z",
+						},
+					},
+					{
+						id: 4,
+						attributes: {
+							title: "TypeScript",
+							updatedAt: "2024-04-15T10:46:35.904Z",
+							publishedAt: "2024-04-15T10:46:35.903Z",
+						},
+					},
+					{
+						id: 15,
+						attributes: {
+							title: "React Query",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+					{
+						id: 3,
+						attributes: {
+							title: "Tailwind",
+							updatedAt: "2024-04-15T10:45:53.704Z",
+							publishedAt: "2024-04-15T10:45:53.703Z",
+						},
+					},
+					{
+						id: 20,
+						attributes: {
+							title: "react-hook-form",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+					{
+						id: 14,
+						attributes: {
+							title: "Orval",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+					{
+						id: 13,
+						attributes: {
+							title: "Git",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+				],
+			},
+		},
+	},
+	{
+		id: 5,
+		attributes: {
+			description:
+				"WBS (Web Block Service) Это серверная часть - backend для управления блоками в базе данных и синхронизации их с клиентом, а так же, для авторизации и регистрации пользователей. Вы можете запустить его локально, следуя инструкциям в README",
+			title: "WBS [Server]",
+			labels: "self-education fullstack",
+			updatedAt: "2024-04-15T17:47:49.060Z",
+			publishedAt: "2024-04-15T17:43:52.835Z",
+			github: "https://github.com/3str-webdev/web-block-service-server",
+			deploy: "",
+			image: {
+				data: [
+					{
+						id: 3,
+						attributes: {
+							name: "WBS-main.png",
+							alternativeText: null,
+							width: 2514,
+							height: 1420,
+							formats: {
+								thumbnail: {
+									name: "",
+									hash: "",
+									ext: ".png",
+									mime: "image/png",
+									width: 234,
+									height: 156,
+									size: 31.62,
+									sizeInBytes: 31621,
+									url: "",
+								},
+								small: {
+									name: "",
+									hash: "",
+									ext: ".png",
+									mime: "image/png",
+									width: 500,
+									height: 333,
+									size: 103.43,
+									sizeInBytes: 103434,
+									url: "",
+								},
+								medium: {
+									name: "",
+									hash: "",
+									ext: ".png",
+									mime: "image/png",
+									width: 750,
+									height: 500,
+									size: 199.36,
+									sizeInBytes: 199358,
+									url: "",
+								},
+								large: {
+									name: "",
+									hash: "",
+									ext: ".png",
+									mime: "image/png",
+									width: 1000,
+									height: 666,
+									size: 314.16,
+									sizeInBytes: 314163,
+									url: "",
+								},
+							},
+							hash: "WBS_server_main_7599ceb445",
+							ext: ".png",
+							mime: "image/png",
+							size: 437.25,
+							url: wbsServerMain.src,
+							updatedAt: "2024-04-15T17:42:54.734Z",
+						},
+					},
+				],
+			},
+			skills: {
+				data: [
+					{
+						id: 16,
+						attributes: {
+							title: "Nest",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+					{
+						id: 4,
+						attributes: {
+							title: "TypeScript",
+							updatedAt: "2024-04-15T10:46:35.904Z",
+							publishedAt: "2024-04-15T10:46:35.903Z",
+						},
+					},
+					{
+						id: 17,
+						attributes: {
+							title: "PrismaORM",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+					{
+						id: 13,
+						attributes: {
+							title: "Git",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+					{
+						id: 18,
+						attributes: {
+							title: "Authentication",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+				],
+			},
+		},
+	},
+	{
+		id: 6,
+		attributes: {
+			description:
+				"WBS (Web Block Service) Это браузерное расширение - оно и обеспечивает блокировку ресурсов с помощью браузерного API. Вы можете запустить его локально, следуя инструкциям в README",
+			title: "WBS [Extension]",
+			labels: "self-education fullstack",
+			updatedAt: "2024-04-15T17:47:49.060Z",
+			publishedAt: "2024-04-15T17:43:52.835Z",
+			github: "https://github.com/3str-webdev/web-block-service-extension",
+			deploy: "",
+			image: {
+				data: [
+					{
+						id: 3,
+						attributes: {
+							name: "WBS-main.png",
+							alternativeText: null,
+							width: 2514,
+							height: 1420,
+							formats: {
+								thumbnail: {
+									name: "",
+									hash: "",
+									ext: ".png",
+									mime: "image/png",
+									width: 234,
+									height: 156,
+									size: 31.62,
+									sizeInBytes: 31621,
+									url: "",
+								},
+								small: {
+									name: "",
+									hash: "",
+									ext: ".png",
+									mime: "image/png",
+									width: 500,
+									height: 333,
+									size: 103.43,
+									sizeInBytes: 103434,
+									url: "",
+								},
+								medium: {
+									name: "",
+									hash: "",
+									ext: ".png",
+									mime: "image/png",
+									width: 750,
+									height: 500,
+									size: 199.36,
+									sizeInBytes: 199358,
+									url: "",
+								},
+								large: {
+									name: "",
+									hash: "",
+									ext: ".png",
+									mime: "image/png",
+									width: 1000,
+									height: 666,
+									size: 314.16,
+									sizeInBytes: 314163,
+									url: "",
+								},
+							},
+							hash: "WBS_server_main_7599ceb445",
+							ext: ".png",
+							mime: "image/png",
+							size: 437.25,
+							url: wbsExtMain.src,
+							updatedAt: "2024-04-15T17:42:54.734Z",
+						},
+					},
+				],
+			},
+			skills: {
+				data: [
+					{
+						id: 1,
+						attributes: {
+							title: "React",
+							createdAt: "2024-04-15T10:33:04.434Z",
+							updatedAt: "2024-04-15T10:44:20.179Z",
+							publishedAt: "2024-04-15T10:44:20.177Z",
+						},
+					},
+					{
+						id: 4,
+						attributes: {
+							title: "TypeScript",
+							updatedAt: "2024-04-15T10:46:35.904Z",
+							publishedAt: "2024-04-15T10:46:35.903Z",
+						},
+					},
+					{
+						id: 15,
+						attributes: {
+							title: "React Query",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+					{
+						id: 13,
+						attributes: {
+							title: "Git",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+					{
+						id: 19,
+						attributes: {
+							title: "crxjs",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+					{
+						id: 14,
+						attributes: {
+							title: "Orval",
 							createdAt: "2024-04-15T17:38:06.730Z",
 							updatedAt: "2024-04-15T17:38:07.421Z",
 							publishedAt: "2024-04-15T17:38:07.420Z",
