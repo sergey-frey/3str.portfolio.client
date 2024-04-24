@@ -181,4 +181,13 @@ export const SKILLS: SkillDto[] = [
 			publishedAt: "2024-04-15T17:38:07.420Z",
 		},
 	},
+	{
+		id: 21,
+		attributes: {
+			title: "СI/CD",
+			createdAt: "2024-04-15T17:38:06.730Z",
+			updatedAt: "2024-04-15T17:38:07.421Z",
+			publishedAt: "2024-04-15T17:38:07.420Z",
+		},
+	},
 ];
