@@ -9,7 +9,7 @@ import { SkillsList } from "./skills-list";
 interface SkillsFilterProps extends HTMLAttributes<HTMLElement> {
 	skills: SkillDto[];
 	onChangeSkills: (skills: SkillDto[]) => void;
-	skillsAnimationProps?: (skillIndex: number) => HTMLMotionProps<"li">;
+	skillsAnimationProps?: () => HTMLMotionProps<"ul">;
 }
 
 export const SkillsFilter = ({
