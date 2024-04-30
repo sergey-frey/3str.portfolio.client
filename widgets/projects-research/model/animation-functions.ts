@@ -5,11 +5,11 @@ export const getSkillsAnimationProps = (
 ): HTMLMotionProps<"li"> => {
 	return {
 		initial: {
-			y: -50,
+			x: -50,
 			opacity: 0,
 		},
 		animate: {
-			y: 0,
+			x: 0,
 			opacity: 1,
 		},
 		transition: {
@@ -17,10 +17,6 @@ export const getSkillsAnimationProps = (
 			damping: 10,
 			stiffness: 120,
 			duration: 0.4,
-			delay: 0.05 * skillIndex,
-		},
-		viewport: {
-			once: true,
 		},
 	};
 };
