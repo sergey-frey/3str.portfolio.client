@@ -277,6 +277,15 @@ export const PROJECTS: ProjectDto[] = [
 							publishedAt: "2024-04-15T17:38:07.420Z",
 						},
 					},
+					{
+						id: 12,
+						attributes: {
+							title: "FSD",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
 				],
 			},
 		},
@@ -398,6 +407,15 @@ export const PROJECTS: ProjectDto[] = [
 						id: 18,
 						attributes: {
 							title: "Authentication",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+					{
+						id: 12,
+						attributes: {
+							title: "FSD",
 							createdAt: "2024-04-15T17:38:06.730Z",
 							updatedAt: "2024-04-15T17:38:07.421Z",
 							publishedAt: "2024-04-15T17:38:07.420Z",
@@ -533,6 +551,15 @@ export const PROJECTS: ProjectDto[] = [
 						id: 14,
 						attributes: {
 							title: "Orval",
+							createdAt: "2024-04-15T17:38:06.730Z",
+							updatedAt: "2024-04-15T17:38:07.421Z",
+							publishedAt: "2024-04-15T17:38:07.420Z",
+						},
+					},
+					{
+						id: 12,
+						attributes: {
+							title: "FSD",
 							createdAt: "2024-04-15T17:38:06.730Z",
 							updatedAt: "2024-04-15T17:38:07.421Z",
 							publishedAt: "2024-04-15T17:38:07.420Z",
