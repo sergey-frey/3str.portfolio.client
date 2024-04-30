@@ -1,8 +1,6 @@
 import type { HTMLMotionProps } from "framer-motion";
 
-export const getSkillsAnimationProps = (
-	skillIndex: number,
-): HTMLMotionProps<"li"> => {
+export const getSkillsAnimationProps = (): HTMLMotionProps<"ul"> => {
 	return {
 		initial: {
 			x: -50,
