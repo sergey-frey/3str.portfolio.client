@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env MODE=dev next dev",
+    "dev": "cross-env NEXT_PUBLIC_MODE=dev next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

@@ -50,6 +50,7 @@ export const ProjectImagesSwiper = ({
 								alt={image.attributes.alternativeText ?? ""}
 								width={image.attributes.width}
 								height={image.attributes.height}
+								className="rounded-xl"
 							/>
 						</SwiperSlide>
 					);

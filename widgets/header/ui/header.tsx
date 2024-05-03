@@ -1,4 +1,3 @@
-import { UILink } from "@/shared/ui";
 import clsx from "clsx";
 import { HeaderLink } from "./header-link";
 
@@ -6,7 +5,7 @@ export const Header = () => {
 	return (
 		<header
 			className={clsx(
-				"sticky w-full flex gap-[10px] px-4 z-20",
+				"sticky top-0 w-full flex gap-[10px] px-4 z-20",
 				"lg:px-10",
 				"container mx-auto",
 			)}

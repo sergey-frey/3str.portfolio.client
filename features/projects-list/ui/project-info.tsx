@@ -23,9 +23,9 @@ export const ProjectInfo = ({
 			<div className="flex items-center gap-3 flex-wrap">
 				<h3
 					className={clsx(
-						"text-h2 font-h2 underline-offset-8",
+						"text-h2 font-h2 underline-offset-8 transition-all",
+						"underline cursor-pointer",
 						"sm:text-h1 sm:font-h1",
-						"hover:underline cursor-pointer",
 					)}
 				>
 					<Link

@@ -3,7 +3,7 @@ import { safeParse } from "valibot";
 import { sendToTelegram } from "./senders";
 import { type ContactMessageDTO, contactMessageSchema } from "./validations";
 
-const isDev = process.env.MODE === "dev";
+const isDev = process.env.NEXT_PUBLIC_MODE === "dev";
 const whitelistUrls = [
 	isDev
 		? "http://localhost:3000/api/contacts"
