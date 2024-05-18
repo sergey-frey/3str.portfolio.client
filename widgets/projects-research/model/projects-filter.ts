@@ -9,11 +9,16 @@ export const getFilteredProjects = (
 	}
 
 	return projects.filter((project) => {
-		for (const skill of project.attributes.skills.data) {
-			if (selectedSkills.find((s) => s.id === skill.id)) {
-				return true;
+		const projectsSkills = project.attributes.skills.data;
+
+		for (const skill of selectedSkills) {
+			const projectHasSkill = projectsSkills.find((s) => s.id === skill.id);
+
+			if (!projectHasSkill) {
+				return false;
 			}
 		}
-		return false;
+
+		return true;
 	});
 };
